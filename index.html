@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carlos Rolan — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">CR</div>
+    <ul class="nav__links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       HERO — Presentación
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero__bg">
+      <div class="hero__blob hero__blob--1"></div>
+      <div class="hero__blob hero__blob--2"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__tag">Bienvenido a mi portfolio</p>
+      <h1 class="hero__name">Carlos<br /><span>Rolan</span></h1>
+      <p class="hero__role">Software Engineer · Full Stack Developer</p>
+      <p class="hero__bio">
+        Apasionado por construir productos digitales que combinan funcionalidad
+        robusta con experiencias de usuario cuidadas. Aquí encontrarás mis
+        proyectos, mi recorrido profesional y cómo contactarme.
+      </p>
+      <div class="hero__cta">
+        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+        <a href="#contacto" class="btn btn--outline">Contáctame</a>
+      </div>
+    </div>
+    <div class="hero__avatar">
+      <div class="avatar-ring">
+        <div class="avatar-placeholder">CR</div>
+      </div>
+    </div>
+    <a href="#proyectos" class="hero__scroll" aria-label="Bajar">
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROYECTOS
+  ═══════════════════════════════════════════ -->
+  <section class="projects" id="proyectos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mis proyectos</span>
+        <h2 class="section-title">Lo que he construido</h2>
+        <p class="section-sub">Proyectos interactivos que puedes explorar y probar directamente.</p>
+      </div>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="ai">IA</button>
+      </div>
+
+      <div class="projects__grid">
+
+        <article class="project-card" data-category="web">
+          <div class="project-card__image project-card__image--1">
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__live">Abrir demo →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag">React</span>
+              <span class="tag">Node.js</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+            <h3 class="project-card__title">Proyecto Alpha</h3>
+            <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
+            <a href="#" class="project-card__link">Ver en GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="ai">
+          <div class="project-card__image project-card__image--2">
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__live">Abrir demo →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag">Python</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">LLM</span>
+            </div>
+            <h3 class="project-card__title">Proyecto Beta</h3>
+            <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
+            <a href="#" class="project-card__link">Ver en GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="mobile">
+          <div class="project-card__image project-card__image--3">
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__live">Abrir demo →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag">React Native</span>
+              <span class="tag">TypeScript</span>
+            </div>
+            <h3 class="project-card__title">Proyecto Gamma</h3>
+            <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
+            <a href="#" class="project-card__link">Ver en GitHub →</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="web">
+          <div class="project-card__image project-card__image--4">
+            <div class="project-card__overlay">
+              <a href="#" class="project-card__live">Abrir demo →</a>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <div class="project-card__tags">
+              <span class="tag">Vue</span>
+              <span class="tag">Firebase</span>
+            </div>
+            <h3 class="project-card__title">Proyecto Delta</h3>
+            <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
+            <a href="#" class="project-card__link">Ver en GitHub →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCIA / CV
+  ═══════════════════════════════════════════ -->
+  <section class="experience" id="experiencia">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Mi recorrido</span>
+        <h2 class="section-title">Experiencia & Formación</h2>
+        <p class="section-sub">Un resumen de mi carrera profesional y académica.</p>
+      </div>
+
+      <div class="experience__layout">
+
+        <!-- Skills lateral -->
+        <aside class="skills-panel">
+          <h3 class="skills-panel__title">Habilidades</h3>
+          <div class="skill-group">
+            <p class="skill-group__label">Frontend</p>
+            <div class="skill-bar"><span style="--w: 90%"></span><label>React / Next.js</label></div>
+            <div class="skill-bar"><span style="--w: 80%"></span><label>TypeScript</label></div>
+            <div class="skill-bar"><span style="--w: 75%"></span><label>CSS / Tailwind</label></div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__label">Backend</p>
+            <div class="skill-bar"><span style="--w: 85%"></span><label>Node.js / Express</label></div>
+            <div class="skill-bar"><span style="--w: 80%"></span><label>Python / FastAPI</label></div>
+            <div class="skill-bar"><span style="--w: 70%"></span><label>PostgreSQL</label></div>
+          </div>
+          <div class="skill-group">
+            <p class="skill-group__label">DevOps & otros</p>
+            <div class="skill-bar"><span style="--w: 70%"></span><label>Docker / CI-CD</label></div>
+            <div class="skill-bar"><span style="--w: 65%"></span><label>AWS / GCP</label></div>
+          </div>
+        </aside>
+
+        <!-- Timeline -->
+        <div class="timeline">
+
+          <div class="timeline__section-label">Experiencia laboral</div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2024 — Actualidad</span>
+              <h4 class="timeline__role">Software Engineer</h4>
+              <p class="timeline__company">Empresa · Ciudad</p>
+              <ul class="timeline__bullets">
+                <li>Descripción de responsabilidad o logro destacado.</li>
+                <li>Otra responsabilidad relevante del puesto.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2022 — 2024</span>
+              <h4 class="timeline__role">Junior Developer</h4>
+              <p class="timeline__company">Empresa · Ciudad</p>
+              <ul class="timeline__bullets">
+                <li>Descripción de responsabilidad o logro destacado.</li>
+                <li>Otra responsabilidad relevante del puesto.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__section-label">Formación académica</div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--edu"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2018 — 2022</span>
+              <h4 class="timeline__role">Grado en Ingeniería Informática</h4>
+              <p class="timeline__company">Universidad · Ciudad</p>
+              <ul class="timeline__bullets">
+                <li>Especialización / mención relevante.</li>
+                <li>Proyecto fin de grado destacado.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline__item">
+            <div class="timeline__dot timeline__dot--edu"></div>
+            <div class="timeline__card">
+              <span class="timeline__date">2022 — 2023</span>
+              <h4 class="timeline__role">Máster en Desarrollo de Software</h4>
+              <p class="timeline__company">Universidad · Ciudad</p>
+              <ul class="timeline__bullets">
+                <li>Especialización relevante.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACTO
+  ═══════════════════════════════════════════ -->
+  <section class="contact" id="contacto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">¿Hablamos?</span>
+        <h2 class="section-title">Contacto</h2>
+        <p class="section-sub">Tanto si tienes un proyecto en mente como si quieres simplemente saludar, escríbeme.</p>
+      </div>
+
+      <div class="contact__layout">
+        <div class="contact__info">
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" opacity="0"/><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div>
+              <p class="contact__label">Email</p>
+              <a href="mailto:tu@email.com" class="contact__value">tu@email.com</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.604-3.369-1.341-3.369-1.341-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.004.071 1.532 1.032 1.532 1.032.892 1.529 2.341 1.087 2.91.831.091-.646.349-1.086.635-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.682-.103-.253-.447-1.27.098-2.646 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836a9.59 9.59 0 0 1 2.504.337c1.909-1.294 2.747-1.025 2.747-1.025.547 1.376.203 2.394.1 2.646.64.698 1.028 1.591 1.028 2.682 0 3.841-2.337 4.687-4.565 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </div>
+            <div>
+              <p class="contact__label">GitHub</p>
+              <a href="https://github.com/carlosrolan" target="_blank" class="contact__value">github.com/carlosrolan</a>
+            </div>
+          </div>
+          <div class="contact__item">
+            <div class="contact__icon">
+              <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <p class="contact__label">LinkedIn</p>
+              <a href="https://linkedin.com/in/carlosrolan" target="_blank" class="contact__value">linkedin.com/in/carlosrolan</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact__form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="5" placeholder="Cuéntame en qué puedo ayudarte..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p class="footer__copy">© 2026 Carlos Rolan. Hecho con ganas.</p>
+      <div class="footer__links">
+        <a href="#inicio">Inicio</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
