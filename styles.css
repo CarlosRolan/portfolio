@@ -203,6 +203,11 @@ ul { list-style: none; }
   align-items: center;
   gap: 6px;
 }
+.lang-btn .fi {
+  width: 18px;
+  height: 13px;
+  border-radius: 2px;
+}
 .lang-btn:hover { color: var(--clr-text); }
 .lang-btn.active {
   background: var(--clr-accent);
