@@ -1,0 +1,50 @@
+{
+  "nav": {
+    "inicio": "Start",
+    "proyectos": "Projekte",
+    "experiencia": "Erfahrung",
+    "contacto": "Kontakt"
+  },
+  "hero": {
+    "tag": "Willkommen in meinem Portfolio",
+    "role": "Software Engineer · Full Stack Developer",
+    "bio": "Leidenschaftlich daran interessiert, digitale Produkte zu entwickeln, die robuste Funktionalität mit sorgfältig gestalteten Nutzererlebnissen verbinden. Hier findest du meine Projekte, meinen beruflichen Werdegang und wie du mich erreichen kannst.",
+    "cta_projects": "Projekte ansehen",
+    "cta_contact": "Kontakt aufnehmen"
+  },
+  "projects": {
+    "tag": "Meine Projekte",
+    "title": "Was ich gebaut habe",
+    "sub": "Interaktive Projekte, die du direkt erkunden und ausprobieren kannst.",
+    "filter_all": "Alle",
+    "filter_web": "Web",
+    "filter_mobile": "Mobile",
+    "filter_ai": "KI",
+    "open_demo": "Demo öffnen →",
+    "view_github": "Auf GitHub ansehen →"
+  },
+  "experience": {
+    "tag": "Mein Werdegang",
+    "title": "Erfahrung & Ausbildung",
+    "sub": "Eine Zusammenfassung meiner beruflichen und akademischen Laufbahn.",
+    "skills_title": "Fähigkeiten",
+    "label_work": "Berufserfahrung",
+    "label_edu": "Akademische Ausbildung"
+  },
+  "contact": {
+    "tag": "Reden wir?",
+    "title": "Kontakt",
+    "sub": "Ob du ein Projekt im Sinn hast oder einfach Hallo sagen möchtest – schreib mir.",
+    "label_name": "Name",
+    "placeholder_name": "Dein Name",
+    "label_email": "E-Mail",
+    "placeholder_email": "du@email.com",
+    "label_message": "Nachricht",
+    "placeholder_message": "Erzähl mir, wie ich dir helfen kann...",
+    "submit": "Nachricht senden",
+    "submit_ok": "Nachricht gesendet!"
+  },
+  "footer": {
+    "copy": "© 2026 Carlos Rolan. Mit Leidenschaft gemacht."
+  }
+}

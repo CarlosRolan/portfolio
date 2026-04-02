@@ -1,0 +1,50 @@
+{
+  "nav": {
+    "inicio": "Home",
+    "proyectos": "Projects",
+    "experiencia": "Experience",
+    "contacto": "Contact"
+  },
+  "hero": {
+    "tag": "Welcome to my portfolio",
+    "role": "Software Engineer · Full Stack Developer",
+    "bio": "Passionate about building digital products that combine robust functionality with carefully crafted user experiences. Here you'll find my projects, my professional journey and how to reach me.",
+    "cta_projects": "View projects",
+    "cta_contact": "Contact me"
+  },
+  "projects": {
+    "tag": "My projects",
+    "title": "What I've built",
+    "sub": "Interactive projects you can explore and try out directly.",
+    "filter_all": "All",
+    "filter_web": "Web",
+    "filter_mobile": "Mobile",
+    "filter_ai": "AI",
+    "open_demo": "Open demo →",
+    "view_github": "View on GitHub →"
+  },
+  "experience": {
+    "tag": "My journey",
+    "title": "Experience & Education",
+    "sub": "A summary of my professional and academic career.",
+    "skills_title": "Skills",
+    "label_work": "Work experience",
+    "label_edu": "Academic background"
+  },
+  "contact": {
+    "tag": "Let's talk?",
+    "title": "Contact",
+    "sub": "Whether you have a project in mind or just want to say hi, drop me a message.",
+    "label_name": "Name",
+    "placeholder_name": "Your name",
+    "label_email": "Email",
+    "placeholder_email": "you@email.com",
+    "label_message": "Message",
+    "placeholder_message": "Tell me how I can help you...",
+    "submit": "Send message",
+    "submit_ok": "Message sent!"
+  },
+  "footer": {
+    "copy": "© 2026 Carlos Rolan. Made with passion."
+  }
+}
