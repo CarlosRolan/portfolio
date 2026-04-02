@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 <body>
 
@@ -173,23 +174,41 @@
         <!-- Skills lateral -->
         <aside class="skills-panel">
           <h3 class="skills-panel__title" data-i18n="experience.skills_title"></h3>
+
           <div class="skill-group">
             <p class="skill-group__label">Frontend</p>
-            <div class="skill-bar"><span style="--w: 90%"></span><label>Angular / React</label></div>
-            <div class="skill-bar"><span style="--w: 80%"></span><label>React Native</label></div>
-            <div class="skill-bar"><span style="--w: 75%"></span><label>TypeScript / JS</label></div>
+            <div class="tech-grid">
+              <div class="tech-icon" data-tip="HTML5"><i class="devicon-html5-plain colored"></i></div>
+              <div class="tech-icon" data-tip="CSS3"><i class="devicon-css3-plain colored"></i></div>
+              <div class="tech-icon" data-tip="JavaScript"><i class="devicon-javascript-plain colored"></i></div>
+              <div class="tech-icon" data-tip="TypeScript"><i class="devicon-typescript-plain colored"></i></div>
+              <div class="tech-icon" data-tip="Angular"><i class="devicon-angular-plain colored"></i></div>
+              <div class="tech-icon" data-tip="React"><i class="devicon-react-original colored"></i></div>
+              <div class="tech-icon" data-tip="Redux"><i class="devicon-redux-original colored"></i></div>
+            </div>
           </div>
+
           <div class="skill-group">
-            <p class="skill-group__label">Backend</p>
-            <div class="skill-bar"><span style="--w: 80%"></span><label>Node.js</label></div>
-            <div class="skill-bar"><span style="--w: 75%"></span><label>Java (Android)</label></div>
-            <div class="skill-bar"><span style="--w: 65%"></span><label>PHP</label></div>
+            <p class="skill-group__label">Backend & Mobile</p>
+            <div class="tech-grid">
+              <div class="tech-icon" data-tip="Node.js"><i class="devicon-nodejs-plain colored"></i></div>
+              <div class="tech-icon" data-tip="Java"><i class="devicon-java-plain colored"></i></div>
+              <div class="tech-icon" data-tip="PHP"><i class="devicon-php-plain colored"></i></div>
+              <div class="tech-icon" data-tip="React Native"><i class="devicon-react-original colored"></i></div>
+              <div class="tech-icon" data-tip="Cordova"><i class="devicon-cordova-plain colored"></i></div>
+            </div>
           </div>
+
           <div class="skill-group">
             <p class="skill-group__label">AI & Data</p>
-            <div class="skill-bar"><span style="--w: 70%"></span><label>Python · ML / DL</label></div>
-            <div class="skill-bar"><span style="--w: 65%"></span><label>numpy · scikit-learn</label></div>
+            <div class="tech-grid">
+              <div class="tech-icon" data-tip="Python"><i class="devicon-python-plain colored"></i></div>
+              <div class="tech-icon" data-tip="NumPy"><i class="devicon-numpy-plain colored"></i></div>
+              <div class="tech-icon" data-tip="scikit-learn"><i class="devicon-scikitlearn-plain colored"></i></div>
+              <div class="tech-icon" data-tip="matplotlib"><i class="devicon-matplotlib-plain colored"></i></div>
+            </div>
           </div>
+
         </aside>
 
         <!-- Timeline -->
