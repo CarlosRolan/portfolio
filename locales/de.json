@@ -7,8 +7,8 @@
   },
   "hero": {
     "tag": "Willkommen in meinem Portfolio",
-    "role": "Software Engineer · Full Stack Developer",
-    "bio": "Leidenschaftlich daran interessiert, digitale Produkte zu entwickeln, die robuste Funktionalität mit sorgfältig gestalteten Nutzererlebnissen verbinden. Hier findest du meine Projekte, meinen beruflichen Werdegang und wie du mich erreichen kannst.",
+    "role": "Full Stack Developer",
+    "bio": "Full Stack Developer mit Erfahrung in der Frontend- und Backend-Entwicklung, fokussiert auf skalierbare Anwendungen und schnelle Einarbeitung in neue Technologien. Lösungsorientierte Denkweise und Fähigkeit, den gesamten Entwicklungszyklus zu begleiten – vom Konzept bis zum Deployment.",
     "cta_projects": "Projekte ansehen",
     "cta_contact": "Kontakt aufnehmen"
   },
@@ -29,7 +29,27 @@
     "sub": "Eine Zusammenfassung meiner beruflichen und akademischen Laufbahn.",
     "skills_title": "Fähigkeiten",
     "label_work": "Berufserfahrung",
-    "label_edu": "Akademische Ausbildung"
+    "label_edu": "Akademische Ausbildung",
+    "present": "Heute",
+    "epo_b1": "Fehlersuche in AV-Systemen (Crestron, Televic Plixus) über Steuerungs- und Weboberflächen.",
+    "epo_b2": "Live-AV-Betrieb: Kamerasteuerung und Mikrofonverwaltung (Plixus).",
+    "epo_b3": "Bedienung von Allen & Heath Mischpulten und Koordination von Multi-System-Setups via KVM für Übersetzungskanäle.",
+    "freelance_b1": "Entwicklung von Web-Frontend-Lösungen über Plattformen wie Upwork und Fiverr.",
+    "freelance_b2": "End-to-End-Anwendung für einen Kunden im britischen Verteidigungssektor, entwickelt in JavaScript.",
+    "demesix_b1": "Entwicklung und Wartung einer Android-Anwendung (Java) für Taxidienste (DTAXIS).",
+    "demesix_b2": "Implementierung von Benutzerverwaltung, Berechtigungen und Standortfunktionen.",
+    "demesix_b3": "Integration der MIUI-spezifischen Berechtigungsverwaltung für Xiaomi-Geräte.",
+    "galvintec_b1": "Entwicklung einer Angular-Anwendung für die Verwaltung und Buchung von Besprechungsräumen.",
+    "galvintec_b2": "Entwicklung einer mobilen App mit React Native und Cordova.",
+    "galvintec_b3": "Integration der Bibliotheken ZXing und Barcode Scanner.",
+    "hackaboss_b1": "270 Stunden Training in KI- und datenbezogenen Technologien.",
+    "hackaboss_b2": "Machine Learning (ML) und Deep Learning.",
+    "hackaboss_b3": "Implementierung mit Python-Bibliotheken: numpy, seaborn, scikit-learn, matplotlib.",
+    "daw_b1": "Praktikum bei Asyson SL.",
+    "daw_b2": "Arbeit mit PHP im GMedia-Systemprodukt.",
+    "dam_b1": "Schwerpunkt auf Frontend-Technologien: Angular, React, Redux, React Native.",
+    "dam_b2": "Praktikum bei Galvintec.",
+    "dam_b3": "Abschluss mit Auszeichnung."
   },
   "contact": {
     "tag": "Reden wir?",
@@ -45,6 +65,6 @@
     "submit_ok": "Nachricht gesendet!"
   },
   "footer": {
-    "copy": "© 2026 Carlos Rolan. Mit Leidenschaft gemacht."
+    "copy": "© 2026 Carlos Rolán Díaz. Mit Leidenschaft gemacht."
   }
 }

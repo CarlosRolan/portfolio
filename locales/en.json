@@ -7,8 +7,8 @@
   },
   "hero": {
     "tag": "Welcome to my portfolio",
-    "role": "Software Engineer · Full Stack Developer",
-    "bio": "Passionate about building digital products that combine robust functionality with carefully crafted user experiences. Here you'll find my projects, my professional journey and how to reach me.",
+    "role": "Full Stack Developer",
+    "bio": "Full Stack Developer with experience in frontend and backend development, focused on building scalable applications and adapting quickly to new technologies. Strong problem-solving mindset and ability to work across the full development lifecycle, from concept to deployment.",
     "cta_projects": "View projects",
     "cta_contact": "Contact me"
   },
@@ -29,7 +29,27 @@
     "sub": "A summary of my professional and academic career.",
     "skills_title": "Skills",
     "label_work": "Work experience",
-    "label_edu": "Academic background"
+    "label_edu": "Academic background",
+    "present": "Present",
+    "epo_b1": "Troubleshot AV systems (Crestron, Televic Plixus) via control and web interfaces.",
+    "epo_b2": "Handled live AV operations: camera control and microphone management (Plixus).",
+    "epo_b3": "Operated Allen & Heath mixers and coordinated multi-system setups via KVM for translation channels.",
+    "freelance_b1": "Developed web frontend solutions through platforms such as Upwork and Fiverr.",
+    "freelance_b2": "Delivered end-to-end application for a client in the defence sector of the UK, built in JavaScript.",
+    "demesix_b1": "Contributed to development and maintenance of an Android application (Java) for taxi services (DTAXIS).",
+    "demesix_b2": "Implemented user management, permissions, and location features.",
+    "demesix_b3": "Integrated MIUI-specific permission handling for Xiaomi devices.",
+    "galvintec_b1": "Developed Angular application for meeting room management and scheduling.",
+    "galvintec_b2": "Built mobile app using React Native and Cordova.",
+    "galvintec_b3": "Integrated ZXing and Barcode Scanner libraries.",
+    "hackaboss_b1": "270 hours of training in AI and data-related technologies.",
+    "hackaboss_b2": "Machine Learning (ML) and Deep Learning.",
+    "hackaboss_b3": "Implementation with Python libraries: numpy, seaborn, scikit-learn, matplotlib.",
+    "daw_b1": "Internship at Asyson SL.",
+    "daw_b2": "Worked with PHP in GMedia system product.",
+    "dam_b1": "Focus on frontend technologies: Angular, React, Redux, React Native.",
+    "dam_b2": "Internship at Galvintec.",
+    "dam_b3": "Graduated with honours."
   },
   "contact": {
     "tag": "Let's talk?",
@@ -45,6 +65,6 @@
     "submit_ok": "Message sent!"
   },
   "footer": {
-    "copy": "© 2026 Carlos Rolan. Made with passion."
+    "copy": "© 2026 Carlos Rolán Díaz. Made with passion."
   }
 }
