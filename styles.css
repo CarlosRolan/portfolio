@@ -190,20 +190,26 @@ ul { list-style: none; }
 .lang-btn {
   background: transparent;
   border: none;
-  color: var(--clr-muted);
-  font-family: var(--font-sans);
-  font-size: .75rem;
-  font-weight: 700;
-  letter-spacing: .05em;
-  padding: 5px 11px;
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 5px 8px;
   border-radius: 50px;
   cursor: pointer;
   transition: all var(--transition);
+  opacity: .45;
+  filter: grayscale(40%);
 }
-.lang-btn:hover { color: var(--clr-text); }
+.lang-btn:hover {
+  opacity: .8;
+  filter: grayscale(0%);
+  transform: scale(1.15);
+}
 .lang-btn.active {
-  background: var(--clr-accent);
-  color: #fff;
+  opacity: 1;
+  filter: grayscale(0%);
+  background: var(--clr-surface);
+  box-shadow: 0 0 0 2px var(--clr-accent);
+  transform: scale(1.1);
 }
 
 .nav__burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
