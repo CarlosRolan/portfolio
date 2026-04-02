@@ -49,7 +49,11 @@
     "daw_b2": "Arbeit mit PHP im GMedia-Systemprodukt.",
     "dam_b1": "Schwerpunkt auf Frontend-Technologien: Angular, React, Redux, React Native.",
     "dam_b2": "Praktikum bei Galvintec.",
-    "dam_b3": "Abschluss mit Auszeichnung."
+    "dam_b3": "Abschluss mit Auszeichnung.",
+    "av_title": "AV-Werkzeuge",
+    "av_control": "Steuerung & Konferenz",
+    "av_audio": "Audio",
+    "av_infra": "Infrastruktur"
   },
   "contact": {
     "tag": "Reden wir?",

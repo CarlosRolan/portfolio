@@ -49,7 +49,11 @@
     "daw_b2": "Trabajo con PHP en el sistema de producto GMedia.",
     "dam_b1": "Especialización en tecnologías frontend: Angular, React, Redux, React Native.",
     "dam_b2": "Prácticas en Galvintec.",
-    "dam_b3": "Graduado con matrícula de honor."
+    "dam_b3": "Graduado con matrícula de honor.",
+    "av_title": "Herramientas AV",
+    "av_control": "Control & Conferencia",
+    "av_audio": "Audio",
+    "av_infra": "Infraestructura"
   },
   "contact": {
     "tag": "¿Hablamos?",

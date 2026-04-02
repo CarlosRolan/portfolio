@@ -49,7 +49,11 @@
     "daw_b2": "Worked with PHP in GMedia system product.",
     "dam_b1": "Focus on frontend technologies: Angular, React, Redux, React Native.",
     "dam_b2": "Internship at Galvintec.",
-    "dam_b3": "Graduated with honours."
+    "dam_b3": "Graduated with honours.",
+    "av_title": "AV Tools",
+    "av_control": "Control & Conference",
+    "av_audio": "Audio",
+    "av_infra": "Infrastructure"
   },
   "contact": {
     "tag": "Let's talk?",
