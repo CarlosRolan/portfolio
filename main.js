@@ -1,4 +1,45 @@
 /* ═══════════════════════════════════════════
+   i18n — carga de JSON y aplicación al DOM
+═══════════════════════════════════════════ */
+const cache = {};
+
+async function loadLocale(lang) {
+  if (cache[lang]) return cache[lang];
+  const res = await fetch(`locales/${lang}.json`);
+  cache[lang] = await res.json();
+  return cache[lang];
+}
+
+function get(obj, path) {
+  return path.split('.').reduce((acc, k) => acc?.[k], obj) ?? '';
+}
+
+async function applyLang(lang) {
+  const t = await loadLocale(lang);
+
+  // Texto de nodos
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = get(t, el.dataset.i18n);
+  });
+
+  // Placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    el.placeholder = get(t, el.dataset.i18nPlaceholder);
+  });
+
+  // Atributo lang del <html>
+  document.documentElement.lang = lang;
+
+  // Guardar preferencia
+  localStorage.setItem('lang', lang);
+
+  // Botones activos
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+}
+
+/* ═══════════════════════════════════════════
    NAV — scroll + active link + burger
 ═══════════════════════════════════════════ */
 const nav    = document.getElementById('nav');
@@ -14,7 +55,6 @@ burger.addEventListener('click', () => {
   links.classList.toggle('open');
 });
 
-// Close mobile menu on link click
 document.querySelectorAll('.nav__links a').forEach(a => {
   a.addEventListener('click', () => links.classList.remove('open'));
 });
@@ -32,6 +72,13 @@ function updateActiveLink() {
 }
 
 /* ═══════════════════════════════════════════
+   LANG SWITCHER
+═══════════════════════════════════════════ */
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+/* ═══════════════════════════════════════════
    PROJECT FILTER
 ═══════════════════════════════════════════ */
 const filterBtns = document.querySelectorAll('.filter-btn');
@@ -41,11 +88,9 @@ filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     const filter = btn.dataset.filter;
     cards.forEach(card => {
-      const match = filter === 'all' || card.dataset.category === filter;
-      card.classList.toggle('hidden', !match);
+      card.classList.toggle('hidden', filter !== 'all' && card.dataset.category !== filter);
     });
   });
 });
@@ -54,14 +99,16 @@ filterBtns.forEach(btn => {
    CONTACT FORM — placeholder submit
 ═══════════════════════════════════════════ */
 const form = document.getElementById('contactForm');
-form.addEventListener('submit', e => {
+form.addEventListener('submit', async e => {
   e.preventDefault();
-  const btn = form.querySelector('button[type="submit"]');
-  btn.textContent = '¡Mensaje enviado!';
+  const btn  = form.querySelector('button[type="submit"]');
+  const lang = localStorage.getItem('lang') || 'es';
+  const t    = await loadLocale(lang);
+  btn.textContent    = get(t, 'contact.submit_ok');
   btn.style.background = 'var(--clr-green)';
   btn.disabled = true;
   setTimeout(() => {
-    btn.textContent = 'Enviar mensaje';
+    btn.textContent    = get(t, 'contact.submit');
     btn.style.background = '';
     btn.disabled = false;
     form.reset();
@@ -85,3 +132,8 @@ document.querySelectorAll('.project-card, .timeline__card, .contact__form, .skil
     el.style.animationPlayState = 'paused';
     observer.observe(el);
   });
+
+/* ═══════════════════════════════════════════
+   INIT — cargar idioma guardado o español
+═══════════════════════════════════════════ */
+applyLang(localStorage.getItem('lang') || 'es');

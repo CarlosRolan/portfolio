@@ -17,14 +17,21 @@
   <nav class="nav" id="nav">
     <div class="nav__logo">CR</div>
     <ul class="nav__links">
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
-      <li><a href="#experiencia">Experiencia</a></li>
-      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#inicio"      data-i18n="nav.inicio"></a></li>
+      <li><a href="#proyectos"   data-i18n="nav.proyectos"></a></li>
+      <li><a href="#experiencia" data-i18n="nav.experiencia"></a></li>
+      <li><a href="#contacto"    data-i18n="nav.contacto"></a></li>
     </ul>
-    <button class="nav__burger" id="burger" aria-label="Menú">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__right">
+      <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="es">ES</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <!-- ═══════════════════════════════════════════
@@ -36,17 +43,13 @@
       <div class="hero__blob hero__blob--2"></div>
     </div>
     <div class="hero__content">
-      <p class="hero__tag">Bienvenido a mi portfolio</p>
+      <p class="hero__tag" data-i18n="hero.tag"></p>
       <h1 class="hero__name">Carlos<br /><span>Rolan</span></h1>
-      <p class="hero__role">Software Engineer · Full Stack Developer</p>
-      <p class="hero__bio">
-        Apasionado por construir productos digitales que combinan funcionalidad
-        robusta con experiencias de usuario cuidadas. Aquí encontrarás mis
-        proyectos, mi recorrido profesional y cómo contactarme.
-      </p>
+      <p class="hero__role" data-i18n="hero.role"></p>
+      <p class="hero__bio" data-i18n="hero.bio"></p>
       <div class="hero__cta">
-        <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
-        <a href="#contacto" class="btn btn--outline">Contáctame</a>
+        <a href="#proyectos" class="btn btn--primary"  data-i18n="hero.cta_projects"></a>
+        <a href="#contacto"  class="btn btn--outline"  data-i18n="hero.cta_contact"></a>
       </div>
     </div>
     <div class="hero__avatar">
@@ -65,16 +68,16 @@
   <section class="projects" id="proyectos">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Mis proyectos</span>
-        <h2 class="section-title">Lo que he construido</h2>
-        <p class="section-sub">Proyectos interactivos que puedes explorar y probar directamente.</p>
+        <span class="section-tag" data-i18n="projects.tag"></span>
+        <h2 class="section-title"  data-i18n="projects.title"></h2>
+        <p class="section-sub"     data-i18n="projects.sub"></p>
       </div>
 
       <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Todos</button>
-        <button class="filter-btn" data-filter="web">Web</button>
-        <button class="filter-btn" data-filter="mobile">Mobile</button>
-        <button class="filter-btn" data-filter="ai">IA</button>
+        <button class="filter-btn active" data-filter="all"    data-i18n="projects.filter_all"></button>
+        <button class="filter-btn"        data-filter="web"    data-i18n="projects.filter_web"></button>
+        <button class="filter-btn"        data-filter="mobile" data-i18n="projects.filter_mobile"></button>
+        <button class="filter-btn"        data-filter="ai"     data-i18n="projects.filter_ai"></button>
       </div>
 
       <div class="projects__grid">
@@ -82,7 +85,7 @@
         <article class="project-card" data-category="web">
           <div class="project-card__image project-card__image--1">
             <div class="project-card__overlay">
-              <a href="#" class="project-card__live">Abrir demo →</a>
+              <a href="#" class="project-card__live" data-i18n="projects.open_demo"></a>
             </div>
           </div>
           <div class="project-card__body">
@@ -93,14 +96,14 @@
             </div>
             <h3 class="project-card__title">Proyecto Alpha</h3>
             <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
-            <a href="#" class="project-card__link">Ver en GitHub →</a>
+            <a href="#" class="project-card__link" data-i18n="projects.view_github"></a>
           </div>
         </article>
 
         <article class="project-card" data-category="ai">
           <div class="project-card__image project-card__image--2">
             <div class="project-card__overlay">
-              <a href="#" class="project-card__live">Abrir demo →</a>
+              <a href="#" class="project-card__live" data-i18n="projects.open_demo"></a>
             </div>
           </div>
           <div class="project-card__body">
@@ -111,14 +114,14 @@
             </div>
             <h3 class="project-card__title">Proyecto Beta</h3>
             <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
-            <a href="#" class="project-card__link">Ver en GitHub →</a>
+            <a href="#" class="project-card__link" data-i18n="projects.view_github"></a>
           </div>
         </article>
 
         <article class="project-card" data-category="mobile">
           <div class="project-card__image project-card__image--3">
             <div class="project-card__overlay">
-              <a href="#" class="project-card__live">Abrir demo →</a>
+              <a href="#" class="project-card__live" data-i18n="projects.open_demo"></a>
             </div>
           </div>
           <div class="project-card__body">
@@ -128,14 +131,14 @@
             </div>
             <h3 class="project-card__title">Proyecto Gamma</h3>
             <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
-            <a href="#" class="project-card__link">Ver en GitHub →</a>
+            <a href="#" class="project-card__link" data-i18n="projects.view_github"></a>
           </div>
         </article>
 
         <article class="project-card" data-category="web">
           <div class="project-card__image project-card__image--4">
             <div class="project-card__overlay">
-              <a href="#" class="project-card__live">Abrir demo →</a>
+              <a href="#" class="project-card__live" data-i18n="projects.open_demo"></a>
             </div>
           </div>
           <div class="project-card__body">
@@ -145,7 +148,7 @@
             </div>
             <h3 class="project-card__title">Proyecto Delta</h3>
             <p class="project-card__desc">Descripción breve del proyecto. Qué problema resuelve y cuál fue tu aportación principal.</p>
-            <a href="#" class="project-card__link">Ver en GitHub →</a>
+            <a href="#" class="project-card__link" data-i18n="projects.view_github"></a>
           </div>
         </article>
 
@@ -159,16 +162,16 @@
   <section class="experience" id="experiencia">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Mi recorrido</span>
-        <h2 class="section-title">Experiencia & Formación</h2>
-        <p class="section-sub">Un resumen de mi carrera profesional y académica.</p>
+        <span class="section-tag" data-i18n="experience.tag"></span>
+        <h2 class="section-title"  data-i18n="experience.title"></h2>
+        <p class="section-sub"     data-i18n="experience.sub"></p>
       </div>
 
       <div class="experience__layout">
 
         <!-- Skills lateral -->
         <aside class="skills-panel">
-          <h3 class="skills-panel__title">Habilidades</h3>
+          <h3 class="skills-panel__title" data-i18n="experience.skills_title"></h3>
           <div class="skill-group">
             <p class="skill-group__label">Frontend</p>
             <div class="skill-bar"><span style="--w: 90%"></span><label>React / Next.js</label></div>
@@ -191,7 +194,7 @@
         <!-- Timeline -->
         <div class="timeline">
 
-          <div class="timeline__section-label">Experiencia laboral</div>
+          <div class="timeline__section-label" data-i18n="experience.label_work"></div>
 
           <div class="timeline__item">
             <div class="timeline__dot"></div>
@@ -219,7 +222,7 @@
             </div>
           </div>
 
-          <div class="timeline__section-label">Formación académica</div>
+          <div class="timeline__section-label" data-i18n="experience.label_edu"></div>
 
           <div class="timeline__item">
             <div class="timeline__dot timeline__dot--edu"></div>
@@ -257,9 +260,9 @@
   <section class="contact" id="contacto">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">¿Hablamos?</span>
-        <h2 class="section-title">Contacto</h2>
-        <p class="section-sub">Tanto si tienes un proyecto en mente como si quieres simplemente saludar, escríbeme.</p>
+        <span class="section-tag" data-i18n="contact.tag"></span>
+        <h2 class="section-title"  data-i18n="contact.title"></h2>
+        <p class="section-sub"     data-i18n="contact.sub"></p>
       </div>
 
       <div class="contact__layout">
@@ -295,18 +298,18 @@
 
         <form class="contact__form" id="contactForm">
           <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+            <label for="name"    data-i18n="contact.label_name"></label>
+            <input type="text"  id="name"    name="name"    data-i18n-placeholder="contact.placeholder_name"    required />
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="tu@email.com" required />
+            <label for="email"   data-i18n="contact.label_email"></label>
+            <input type="email" id="email"   name="email"   data-i18n-placeholder="contact.placeholder_email"   required />
           </div>
           <div class="form-group">
-            <label for="message">Mensaje</label>
-            <textarea id="message" name="message" rows="5" placeholder="Cuéntame en qué puedo ayudarte..." required></textarea>
+            <label for="message" data-i18n="contact.label_message"></label>
+            <textarea           id="message" name="message" data-i18n-placeholder="contact.placeholder_message" rows="5" required></textarea>
           </div>
-          <button type="submit" class="btn btn--primary btn--full">Enviar mensaje</button>
+          <button type="submit" class="btn btn--primary btn--full" data-i18n="contact.submit"></button>
         </form>
       </div>
     </div>
@@ -317,12 +320,12 @@
   ═══════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container footer__inner">
-      <p class="footer__copy">© 2026 Carlos Rolan. Hecho con ganas.</p>
+      <p class="footer__copy" data-i18n="footer.copy"></p>
       <div class="footer__links">
-        <a href="#inicio">Inicio</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#contacto">Contacto</a>
+        <a href="#inicio"      data-i18n="nav.inicio"></a>
+        <a href="#proyectos"   data-i18n="nav.proyectos"></a>
+        <a href="#experiencia" data-i18n="nav.experiencia"></a>
+        <a href="#contacto"    data-i18n="nav.contacto"></a>
       </div>
     </div>
   </footer>
