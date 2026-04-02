@@ -190,26 +190,23 @@ ul { list-style: none; }
 .lang-btn {
   background: transparent;
   border: none;
-  font-size: 1.25rem;
-  line-height: 1;
-  padding: 5px 8px;
+  color: var(--clr-muted);
+  font-family: var(--font-sans);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 5px 12px;
   border-radius: 50px;
   cursor: pointer;
   transition: all var(--transition);
-  opacity: .45;
-  filter: grayscale(40%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
-.lang-btn:hover {
-  opacity: .8;
-  filter: grayscale(0%);
-  transform: scale(1.15);
-}
+.lang-btn:hover { color: var(--clr-text); }
 .lang-btn.active {
-  opacity: 1;
-  filter: grayscale(0%);
-  background: var(--clr-surface);
-  box-shadow: 0 0 0 2px var(--clr-accent);
-  transform: scale(1.1);
+  background: var(--clr-accent);
+  color: #fff;
 }
 
 .nav__burger { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
