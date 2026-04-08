@@ -47,9 +47,9 @@ async function applyLang(lang) {
   const heroAvEl    = document.querySelector('.hero__avatar');
   const heroSection = document.getElementById('inicio');
 
-  // Tamaño destino (esquina inferior derecha)
-  const TARGET_SIZE = 64;
-  const MARGIN      = 28;
+  // Tamaño destino (esquina superior derecha — dentro del nav)
+  const TARGET_SIZE = 40;
+  const NAV_H       = 64;
 
   function lerp(a, b, t) { return a + (b - a) * t; }
   function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
@@ -64,8 +64,8 @@ async function applyLang(lang) {
     startSize = r.width;
 
     // Fijar el avatar flotante en la esquina destino y usar transform para moverlo
-    const tX = window.innerWidth  - MARGIN - TARGET_SIZE / 2;
-    const tY = window.innerHeight - MARGIN - TARGET_SIZE / 2;
+    const tX = window.innerWidth  - 80;          // margen derecho del nav
+    const tY = NAV_H / 2;                         // centro vertical del nav
     floatingAv.style.width  = TARGET_SIZE + 'px';
     floatingAv.style.height = TARGET_SIZE + 'px';
     floatingAv.style.left   = tX - TARGET_SIZE / 2 + 'px';
