@@ -200,20 +200,23 @@ document.querySelectorAll('.project-card, .contact__form, .skills-panel')
   });
 
 /* ═══════════════════════════════════════════
-   TIMELINE — scroll narrativo (sticky + progress)
+   TIMELINE — scroll narrativo
+   La card se expande cuando su item atraviesa
+   el punto de anclaje (20vh desde el top).
+   Se colapsa al salir.
 ═══════════════════════════════════════════ */
 function updateTimeline() {
-  const viewH = window.innerHeight;
+  const anchor = window.innerHeight * 0.20; // punto de anclaje = top de la card sticky
+
   document.querySelectorAll('.timeline__item').forEach(item => {
-    const rect     = item.getBoundingClientRect();
-    const itemH    = item.offsetHeight;
-    const card     = item.querySelector('.timeline__card');
-    // progress: 0 cuando el item entra por abajo, 1 cuando sale por arriba
-    const progress = (viewH - rect.top) / (itemH + viewH);
-    // Expandir mientras el usuario está "dentro" del item
-    // Colapsar al entrar (< 0.08) y al salir (> 0.88)
-    const expand = progress > 0.08 && progress < 0.88;
-    card.classList.toggle('is-expanded', expand);
+    const rect   = item.getBoundingClientRect();
+    const card   = item.querySelector('.timeline__card');
+
+    // El item está "activo" mientras su contenedor atraviesa el punto de anclaje:
+    // top del item ya pasó el anchor Y el bottom del item aún no lo ha superado
+    const isActive = rect.top <= anchor && rect.bottom > anchor + 80;
+
+    card.classList.toggle('is-expanded', isActive);
   });
 }
 
