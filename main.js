@@ -48,18 +48,61 @@ async function applyLang(lang) {
   const heroSection = document.getElementById('inicio');
   const navLogo     = document.querySelector('.nav__logo');
 
-  function updateAvatar() {
-    const heroBottom = heroSection.getBoundingClientRect().bottom;
-    // El avatar aparece cuando el hero sale de la vista
-    const visible = heroBottom < 80;
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
 
-    floatingAv.classList.toggle('floating-avatar--visible', visible);
-    navLogo.style.opacity    = visible ? '0' : '1';
-    heroAvEl.style.opacity   = visible ? '0' : '1';
+  // Captura posición absoluta del hero avatar (una vez, con scrollY=0)
+  let heroDocCX, heroDocCY, heroSize;
+
+  function captureHero() {
+    const r    = heroAvEl.getBoundingClientRect();
+    heroDocCX  = r.left + r.width  / 2 + window.scrollX;
+    heroDocCY  = r.top  + r.height / 2 + window.scrollY;
+    heroSize   = r.width;
+    updateAvatar();
   }
 
-  window.addEventListener('scroll', updateAvatar, { passive: true });
-  updateAvatar();
+  function updateAvatar() {
+    if (!heroSize) return;
+
+    const heroH    = heroSection.offsetHeight;
+    const progress = Math.min(Math.max(window.scrollY / (heroH * 0.65), 0), 1);
+    const p        = ease(progress);
+
+    // Posición actual del hero en viewport (se mueve al hacer scroll)
+    const startCX = heroDocCX - window.scrollX;
+    const startCY = heroDocCY - window.scrollY;
+
+    // Destino: centro del logo nav (siempre fijo en viewport)
+    const nr   = navLogo.getBoundingClientRect();
+    const endCX = nr.left + nr.width  / 2;
+    const endCY = nr.top  + nr.height / 2;
+    const endSize = nr.width;
+
+    // Interpolar posición y tamaño
+    const cx   = lerp(startCX, endCX,   p);
+    const cy   = lerp(startCY, endCY,   p);
+    const size = lerp(heroSize, endSize, p);
+
+    floatingAv.style.left   = (cx - size / 2) + 'px';
+    floatingAv.style.top    = (cy - size / 2) + 'px';
+    floatingAv.style.width  = size + 'px';
+    floatingAv.style.height = size + 'px';
+    floatingAv.style.opacity = p > 0.01 ? '1' : '0';
+
+    // Hero avatar se desvanece al salir
+    heroAvEl.style.opacity  = 1 - p;
+    // Nav logo CR desaparece cuando llega el avatar
+    navLogo.style.opacity   = Math.max(1 - p * 6, 0);
+
+    // Ajuste de font-size del placeholder CR
+    const inner = floatingAv.querySelector('.floating-avatar__inner');
+    if (inner) inner.style.fontSize = Math.max(size * 0.32, 10) + 'px';
+  }
+
+  window.addEventListener('load',   captureHero,    { once: true });
+  window.addEventListener('resize', captureHero);
+  window.addEventListener('scroll', updateAvatar,   { passive: true });
 })();
 
 /* ═══════════════════════════════════════════
