@@ -142,6 +142,7 @@ ul { list-style: none; }
   display: flex; align-items: center; justify-content: center;
   border: 2px solid var(--clr-accent);
   border-radius: 10px;
+  transition: opacity 0.35s ease;
 }
 
 .nav__links {
@@ -894,11 +895,21 @@ ul { list-style: none; }
 ═══════════════════════════════════════════ */
 .floating-avatar {
   position: fixed;
-  z-index: 98;
+  top: 11px;
+  left: 40px;
+  width: 42px;
+  height: 42px;
+  z-index: 101;
   border-radius: 50%;
   pointer-events: none;
   opacity: 0;
-  will-change: transform, opacity;
+  transform: scale(0.6);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.floating-avatar--visible {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .floating-avatar__ring {

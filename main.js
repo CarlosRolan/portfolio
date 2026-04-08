@@ -48,62 +48,18 @@ async function applyLang(lang) {
   const heroSection = document.getElementById('inicio');
   const navLogo     = document.querySelector('.nav__logo');
 
-  function lerp(a, b, t) { return a + (b - a) * t; }
-  function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
-
-  function capturePositions() {
-    // Origen: centro del avatar del hero
-    const hr   = heroAvEl.getBoundingClientRect();
-    const startCX = hr.left + hr.width  / 2;
-    const startCY = hr.top  + hr.height / 2;
-
-    // Destino: centro del logo "CR" en el nav
-    const nr   = navLogo.getBoundingClientRect();
-    const tX   = nr.left + nr.width  / 2;
-    const tY   = nr.top  + nr.height / 2;
-    const tSize = nr.width;
-
-    // Colocar el avatar flotante encima del destino (nav logo)
-    floatingAv.style.width  = tSize + 'px';
-    floatingAv.style.height = tSize + 'px';
-    floatingAv.style.left   = tX - tSize / 2 + 'px';
-    floatingAv.style.top    = tY - tSize / 2 + 'px';
-
-    // Guardamos el offset y escala para el transform inverso
-    floatingAv._dx    = startCX - tX;
-    floatingAv._dy    = startCY - tY;
-    floatingAv._scale = hr.width / tSize;
-
-    updateAvatar();
-  }
-
   function updateAvatar() {
-    const heroH    = heroSection.offsetHeight;
-    const progress = Math.min(Math.max(window.scrollY / (heroH * 0.6), 0), 1);
-    const p        = ease(progress);
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    // El avatar aparece cuando el hero sale de la vista
+    const visible = heroBottom < 80;
 
-    // Avatar flotante: empieza en posición del hero, termina en el nav logo
-    const dx    = floatingAv._dx * (1 - p);
-    const dy    = floatingAv._dy * (1 - p);
-    const scale = lerp(floatingAv._scale, 1, p);
-
-    floatingAv.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
-    floatingAv.style.opacity   = progress > 0.02 ? '1' : '0';
-
-    // Hero avatar se desvanece
-    heroAvEl.style.opacity = Math.max(1 - p * 2.5, 0);
-
-    // Nav logo "CR" desaparece cuando el avatar llega
-    navLogo.style.opacity = Math.max(1 - p * 4, 0);
-
-    // Ajustar font-size del texto CR dentro del flotante
-    const inner = floatingAv.querySelector('.floating-avatar__inner');
-    if (inner) inner.style.fontSize = (1.1 * (1 / scale)) + 'rem';
+    floatingAv.classList.toggle('floating-avatar--visible', visible);
+    navLogo.style.opacity    = visible ? '0' : '1';
+    heroAvEl.style.opacity   = visible ? '0' : '1';
   }
 
-  window.addEventListener('load',   capturePositions);
-  window.addEventListener('resize', capturePositions);
   window.addEventListener('scroll', updateAvatar, { passive: true });
+  updateAvatar();
 })();
 
 /* ═══════════════════════════════════════════
