@@ -40,6 +40,71 @@ async function applyLang(lang) {
 }
 
 /* ═══════════════════════════════════════════
+   FLOATING AVATAR — scroll-to-corner
+═══════════════════════════════════════════ */
+(function () {
+  const floatingAv  = document.getElementById('floatingAvatar');
+  const heroAvEl    = document.querySelector('.hero__avatar');
+  const heroSection = document.getElementById('inicio');
+
+  // Tamaño destino (esquina inferior derecha)
+  const TARGET_SIZE = 64;
+  const MARGIN      = 28;
+
+  function lerp(a, b, t) { return a + (b - a) * t; }
+  function ease(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+
+  // Posición inicial capturada al cargar (scrollY = 0)
+  let startCX, startCY, startSize;
+
+  function captureHeroPos() {
+    const r  = heroAvEl.getBoundingClientRect();
+    startCX  = r.left + r.width  / 2;
+    startCY  = r.top  + r.height / 2;
+    startSize = r.width;
+
+    // Fijar el avatar flotante en la esquina destino y usar transform para moverlo
+    const tX = window.innerWidth  - MARGIN - TARGET_SIZE / 2;
+    const tY = window.innerHeight - MARGIN - TARGET_SIZE / 2;
+    floatingAv.style.width  = TARGET_SIZE + 'px';
+    floatingAv.style.height = TARGET_SIZE + 'px';
+    floatingAv.style.left   = tX - TARGET_SIZE / 2 + 'px';
+    floatingAv.style.top    = tY - TARGET_SIZE / 2 + 'px';
+
+    // Offset para transform inicial (hero → esquina)
+    floatingAv._dx    = startCX - tX;
+    floatingAv._dy    = startCY - tY;
+    floatingAv._scale = startSize / TARGET_SIZE;
+
+    updateAvatar();
+  }
+
+  function updateAvatar() {
+    const heroH    = heroSection.offsetHeight;
+    const progress = Math.min(Math.max(window.scrollY / (heroH * 0.65), 0), 1);
+    const p        = ease(progress);
+
+    const dx    = floatingAv._dx    * (1 - p);
+    const dy    = floatingAv._dy    * (1 - p);
+    const scale = lerp(floatingAv._scale, 1, p);
+
+    floatingAv.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+    floatingAv.style.opacity   = progress > 0.02 ? '1' : '0';
+
+    // Fundir el avatar del hero al mismo ritmo
+    heroAvEl.style.opacity = Math.max(1 - p * 2.5, 0);
+
+    // Escalar texto "CR" dentro
+    const inner = floatingAv.querySelector('.floating-avatar__inner');
+    if (inner) inner.style.fontSize = (1.4 * (1 / scale)) + 'rem';
+  }
+
+  window.addEventListener('load',   captureHeroPos);
+  window.addEventListener('resize', captureHeroPos);
+  window.addEventListener('scroll', updateAvatar, { passive: true });
+})();
+
+/* ═══════════════════════════════════════════
    NAV — scroll + active link + burger
 ═══════════════════════════════════════════ */
 const nav    = document.getElementById('nav');
