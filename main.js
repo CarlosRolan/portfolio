@@ -193,11 +193,27 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.project-card, .timeline__card, .contact__form, .skills-panel')
+document.querySelectorAll('.project-card, .contact__form, .skills-panel')
   .forEach(el => {
     el.style.animationPlayState = 'paused';
     observer.observe(el);
   });
+
+/* ═══════════════════════════════════════════
+   TIMELINE — expansión al hacer scroll
+═══════════════════════════════════════════ */
+const timelineObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('is-expanded'), 150);
+      timelineObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.35 });
+
+document.querySelectorAll('.timeline__card').forEach(card => {
+  timelineObserver.observe(card);
+});
 
 /* ═══════════════════════════════════════════
    INIT — cargar idioma guardado o español
