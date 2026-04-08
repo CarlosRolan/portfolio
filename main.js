@@ -200,20 +200,25 @@ document.querySelectorAll('.project-card, .contact__form, .skills-panel')
   });
 
 /* ═══════════════════════════════════════════
-   TIMELINE — expansión al hacer scroll
+   TIMELINE — scroll narrativo (sticky + progress)
 ═══════════════════════════════════════════ */
-const timelineObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('is-expanded'), 150);
-      timelineObserver.unobserve(entry.target);
-    }
+function updateTimeline() {
+  const viewH = window.innerHeight;
+  document.querySelectorAll('.timeline__item').forEach(item => {
+    const rect     = item.getBoundingClientRect();
+    const itemH    = item.offsetHeight;
+    const card     = item.querySelector('.timeline__card');
+    // progress: 0 cuando el item entra por abajo, 1 cuando sale por arriba
+    const progress = (viewH - rect.top) / (itemH + viewH);
+    // Expandir mientras el usuario está "dentro" del item
+    // Colapsar al entrar (< 0.08) y al salir (> 0.88)
+    const expand = progress > 0.08 && progress < 0.88;
+    card.classList.toggle('is-expanded', expand);
   });
-}, { threshold: 0.35 });
+}
 
-document.querySelectorAll('.timeline__card').forEach(card => {
-  timelineObserver.observe(card);
-});
+window.addEventListener('scroll', updateTimeline, { passive: true });
+updateTimeline();
 
 /* ═══════════════════════════════════════════
    INIT — cargar idioma guardado o español
