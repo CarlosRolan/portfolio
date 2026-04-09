@@ -732,10 +732,10 @@ ul { list-style: none; }
 .timeline__item {
   display: flex;
   gap: 20px;
-  min-height: 120vh;
+  padding-bottom: 20px;   /* base — JS sobreescribe cuando expande */
   margin-bottom: 0;
   position: relative;
-  align-items: flex-start;
+  transition: padding-bottom 0.7s cubic-bezier(.4,0,.2,1);
 }
 
 .timeline__item::before {
@@ -746,7 +746,9 @@ ul { list-style: none; }
   bottom: 0;
   width: 2px;
   background: var(--clr-border);
+  transition: background 0.3s ease;
 }
+.timeline__item.is-active::before { background: var(--clr-accent); }
 .timeline__item:last-child::before { display: none; }
 
 .timeline__dot {
@@ -757,13 +759,20 @@ ul { list-style: none; }
   border: 3px solid var(--clr-bg);
   box-shadow: 0 0 0 2px var(--clr-accent);
   flex-shrink: 0;
-  position: sticky;
-  top: 28vh;
-  z-index: 1;
+  margin-top: 4px;
+  /* sin sticky — queda en flujo normal */
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.timeline__item.is-active .timeline__dot {
+  box-shadow: 0 0 0 4px var(--clr-accent);
+  transform: scale(1.2);
 }
 .timeline__dot--edu {
   background: var(--clr-green);
   box-shadow: 0 0 0 2px var(--clr-green);
+}
+.timeline__item.is-active .timeline__dot--edu {
+  box-shadow: 0 0 0 4px var(--clr-green);
 }
 
 .timeline__card {
@@ -773,7 +782,7 @@ ul { list-style: none; }
   padding: 20px 24px;
   flex: 1;
   position: sticky;
-  top: 20vh;
+  top: 15vh;           /* la card se ancla sola; el dot no */
   align-self: start;
   transition: border-color var(--transition), box-shadow var(--transition);
 }

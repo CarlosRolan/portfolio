@@ -202,29 +202,31 @@ document.querySelectorAll('.project-card, .contact__form, .skills-panel')
 /* ═══════════════════════════════════════════
    TIMELINE — scroll narrativo
 
-   Dos fases por item:
-   1) La card se PEGA (sticky) cuando item.top < 20vh
-      → el usuario ve el resumen un momento
-   2) La card se EXPANDE cuando item.top < -120px
-      → el item ha seguido scrolleando, la card
-        lleva ya un rato visible y estable
-   La card se CONTRAE cuando el item sale por arriba.
+   La card tiene position:sticky; top:15vh → se ancla sola.
+   El dot está en flujo normal → se mueve hacia arriba.
+   El item recibe padding-bottom = altura del extra expandido
+   → el siguiente dot se aleja exactamente lo necesario.
 ═══════════════════════════════════════════ */
 function updateTimeline() {
-  const stickyPoint = window.innerHeight * 0.20; // 20vh — donde la card se pega
-  const expandDelay = 120;                        // px extra antes de expandir
+  const stickyTop = window.innerHeight * 0.15; // coincide con CSS top: 15vh
 
   document.querySelectorAll('.timeline__item').forEach(item => {
-    const rect = item.getBoundingClientRect();
-    const card = item.querySelector('.timeline__card');
+    const rect  = item.getBoundingClientRect();
+    const card  = item.querySelector('.timeline__card');
+    const extra = item.querySelector('.timeline__extra');
 
-    // Fase 1 — card pega cuando rect.top < stickyPoint (20vh)
-    // Fase 2 — card expande 120px después: rect.top < stickyPoint - expandDelay
-    // Fase 3 — card contrae cuando el item casi ha salido
-    const expandAt  = stickyPoint - expandDelay;          // e.g. ~40px
-    const isExpanded = rect.top < expandAt && rect.bottom > stickyPoint + 200;
+    // Activo: el item ha pasado la línea sticky y aún no ha salido
+    const isActive = rect.top < stickyTop && rect.bottom > stickyTop + 80;
 
-    card.classList.toggle('is-expanded', isExpanded);
+    item.classList.toggle('is-active', isActive);
+    card.classList.toggle('is-expanded', isActive);
+
+    // Ajustar padding-bottom al alto real del contenido extra de ESTE item
+    if (isActive && extra) {
+      item.style.paddingBottom = (extra.scrollHeight + 24) + 'px';
+    } else {
+      item.style.paddingBottom = '20px';
+    }
   });
 }
 
