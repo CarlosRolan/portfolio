@@ -505,7 +505,55 @@ ul { list-style: none; }
   background: var(--clr-surface2);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius);
-  padding: 28px;
+  padding: 0 0 24px;
+  overflow: hidden;
+}
+
+/* Ticker: banner de iconos en bucle horizontal */
+.skills-ticker {
+  overflow: hidden;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--clr-border);
+  margin-bottom: 20px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+  mask-image:         linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
+}
+
+.skills-ticker__track {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  width: max-content;
+  animation: ticker-scroll 22s linear infinite;
+  padding: 0 11px; /* half-gap so it loops cleanly */
+}
+
+.skills-ticker__track i {
+  font-size: 1.7rem;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+}
+
+.skills-ticker__track:hover { animation-play-state: paused; }
+.skills-ticker__track i:hover { opacity: 1; }
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Cuerpo dinámico */
+.skills-panel__body {
+  padding: 0 24px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.skills-panel__hint {
+  font-size: .8rem;
+  color: var(--clr-muted);
+  text-align: center;
+  padding: 16px 0 4px;
 }
 
 .skills-panel__title {

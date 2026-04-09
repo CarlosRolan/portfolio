@@ -191,81 +191,64 @@
 
         <div class="experience__left">
 
-          <!-- AV Tools -->
-          <aside class="skills-panel">
-            <h3 class="skills-panel__title" data-i18n="experience.av_title"></h3>
-            <div class="skill-group">
-              <p class="skill-group__label" data-i18n="experience.av_control"></p>
-              <div class="av-grid">
-                <div class="av-chip" data-desc="Plataforma de automatización y control AV para entornos profesionales">Crestron</div>
-                <div class="av-chip" data-desc="Sistema de gestión de conferencias y micrófonos en red">Televic Plixus</div>
+          <!-- Panel dinámico: ticker + stack del item activo -->
+          <aside class="skills-panel" id="skillsPanel">
+
+            <!-- Ticker: todos los iconos en bucle horizontal -->
+            <div class="skills-ticker">
+              <div class="skills-ticker__track">
+                <i class="devicon-html5-plain colored"></i>
+                <i class="devicon-css3-plain colored"></i>
+                <i class="devicon-javascript-plain colored"></i>
+                <i class="devicon-typescript-plain colored"></i>
+                <i class="devicon-angular-plain colored"></i>
+                <i class="devicon-react-original colored"></i>
+                <i class="devicon-redux-original colored"></i>
+                <i class="devicon-nodejs-plain colored"></i>
+                <i class="devicon-java-plain colored"></i>
+                <i class="devicon-php-plain colored"></i>
+                <i class="devicon-laravel-plain colored"></i>
+                <i class="devicon-androidstudio-plain colored"></i>
+                <i class="devicon-python-plain colored"></i>
+                <i class="devicon-numpy-plain colored"></i>
+                <i class="devicon-scikitlearn-plain colored"></i>
+                <i class="devicon-matplotlib-plain colored"></i>
+                <i class="devicon-pandas-plain colored"></i>
+                <i class="devicon-tensorflow-original colored"></i>
+                <i class="devicon-mysql-plain colored"></i>
+                <i class="devicon-mariadb-plain colored"></i>
+                <i class="devicon-git-plain colored"></i>
+                <!-- duplicado para loop continuo -->
+                <i class="devicon-html5-plain colored"></i>
+                <i class="devicon-css3-plain colored"></i>
+                <i class="devicon-javascript-plain colored"></i>
+                <i class="devicon-typescript-plain colored"></i>
+                <i class="devicon-angular-plain colored"></i>
+                <i class="devicon-react-original colored"></i>
+                <i class="devicon-redux-original colored"></i>
+                <i class="devicon-nodejs-plain colored"></i>
+                <i class="devicon-java-plain colored"></i>
+                <i class="devicon-php-plain colored"></i>
+                <i class="devicon-laravel-plain colored"></i>
+                <i class="devicon-androidstudio-plain colored"></i>
+                <i class="devicon-python-plain colored"></i>
+                <i class="devicon-numpy-plain colored"></i>
+                <i class="devicon-scikitlearn-plain colored"></i>
+                <i class="devicon-matplotlib-plain colored"></i>
+                <i class="devicon-pandas-plain colored"></i>
+                <i class="devicon-tensorflow-original colored"></i>
+                <i class="devicon-mysql-plain colored"></i>
+                <i class="devicon-mariadb-plain colored"></i>
+                <i class="devicon-git-plain colored"></i>
               </div>
             </div>
-            <div class="skill-group">
-              <p class="skill-group__label" data-i18n="experience.av_audio"></p>
-              <div class="av-grid">
-                <div class="av-chip" data-desc="Mesas de mezclas profesionales para audio en directo">Allen & Heath</div>
-                <div class="av-chip" data-desc="Gestión de micrófonos y canales de traducción en directo">Plixus Engine</div>
-              </div>
+
+            <!-- Cuerpo dinámico — actualizado por JS según el item activo -->
+            <div class="skills-panel__body" id="skillsPanelBody">
+              <p class="skills-panel__hint">↓ Scroll para ver el stack</p>
             </div>
-            <div class="skill-group">
-              <p class="skill-group__label" data-i18n="experience.av_infra"></p>
-              <div class="av-grid">
-                <div class="av-chip" data-desc="Conmutación de teclado, vídeo y ratón entre múltiples sistemas">KVM Switch</div>
-                <div class="av-chip" data-desc="Control remoto e interfaces web para sistemas AV">Web Control</div>
-              </div>
-            </div>
+
           </aside>
-
-          <!-- Tech Skills -->
-          <aside class="skills-panel">
-          <h3 class="skills-panel__title" data-i18n="experience.skills_title"></h3>
-
-          <div class="skill-group">
-            <p class="skill-group__label">Frontend</p>
-            <div class="tech-grid">
-              <div class="tech-icon" data-tip="HTML5"><i class="devicon-html5-plain colored"></i></div>
-              <div class="tech-icon" data-tip="CSS3"><i class="devicon-css3-plain colored"></i></div>
-              <div class="tech-icon" data-tip="JavaScript"><i class="devicon-javascript-plain colored"></i></div>
-              <div class="tech-icon" data-tip="TypeScript"><i class="devicon-typescript-plain colored"></i></div>
-              <div class="tech-icon" data-tip="Angular"><i class="devicon-angular-plain colored"></i></div>
-              <div class="tech-icon" data-tip="React"><i class="devicon-react-original colored"></i></div>
-              <div class="tech-icon" data-tip="Redux"><i class="devicon-redux-original colored"></i></div>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <p class="skill-group__label">Backend & Mobile</p>
-            <div class="tech-grid">
-              <div class="tech-icon" data-tip="Node.js"><i class="devicon-nodejs-plain colored"></i></div>
-              <div class="tech-icon" data-tip="Java"><i class="devicon-java-plain colored"></i></div>
-              <div class="tech-icon" data-tip="PHP"><i class="devicon-php-plain colored"></i></div>
-              <div class="tech-icon" data-tip="React Native"><i class="devicon-react-original colored"></i></div>
-              <div class="tech-icon" data-tip="Android Studio"><i class="devicon-androidstudio-plain colored"></i></div>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <p class="skill-group__label">AI & Data</p>
-            <div class="tech-grid">
-              <div class="tech-icon" data-tip="Python"><i class="devicon-python-plain colored"></i></div>
-              <div class="tech-icon" data-tip="NumPy"><i class="devicon-numpy-plain colored"></i></div>
-              <div class="tech-icon" data-tip="scikit-learn"><i class="devicon-scikitlearn-plain colored"></i></div>
-              <div class="tech-icon" data-tip="matplotlib"><i class="devicon-matplotlib-plain colored"></i></div>
-            </div>
-          </div>
-
-          <div class="skill-group">
-            <p class="skill-group__label">Bases de Datos</p>
-            <div class="tech-grid">
-              <div class="tech-icon" data-tip="MySQL"><i class="devicon-mysql-plain colored"></i></div>
-              <div class="tech-icon" data-tip="MariaDB"><i class="devicon-mariadb-plain colored"></i></div>
-              <div class="tech-icon" data-tip="PostgreSQL"><i class="devicon-postgresql-plain colored"></i></div>
-              <div class="tech-icon" data-tip="phpMyAdmin"><i class="devicon-php-plain colored"></i></div>
-            </div>
-          </div>
-
-        </aside>
 
         </div><!-- /.experience__left -->
 
@@ -275,7 +258,7 @@
           <div class="timeline__section-label" data-i18n="experience.label_work"></div>
 
           <!-- EPO -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="epo">
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">11/2025 — <span data-i18n="experience.present"></span></span>
@@ -298,18 +281,12 @@
                   <li>Diagnosed signal chain issues involving HDMI matrix switchers, signal extenders and display systems.</li>
                   <li>Created technical documentation and trained end users on AV equipment operation.</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">Crestron</span><span class="tag">Televic Plixus</span>
-                  <span class="tag">Allen & Heath</span><span class="tag">KVM</span>
-                  <span class="tag">AV Live Ops</span><span class="tag">Signal Chain</span>
-                  <span class="tag">HDMI Matrix</span>
-                </div>
               </div>
             </div>
           </div>
 
           <!-- Freelance -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="freelance">
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">01/2025 — 11/2025</span>
@@ -331,17 +308,12 @@
                   <li>Maintained top-rated status on both platforms through timely delivery and clear scope management.</li>
                   <li>Handled deployment pipelines and hosting configuration for delivered projects.</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">JavaScript</span><span class="tag">Node.js</span>
-                  <span class="tag">React</span><span class="tag">REST APIs</span>
-                  <span class="tag">Full Stack</span><span class="tag">Remote</span>
-                </div>
               </div>
             </div>
           </div>
 
           <!-- Demesix -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="demesix">
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">03/2023 — 09/2023</span>
@@ -362,17 +334,12 @@
                   <li>Implemented runtime permission flows compliant with Android 10+ security model.</li>
                   <li>Participated in daily stand-ups and sprint reviews following Scrum methodology.</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">Java</span><span class="tag">Android SDK</span>
-                  <span class="tag">MIUI</span><span class="tag">Google Maps</span>
-                  <span class="tag">Geolocation</span><span class="tag">Scrum</span>
-                </div>
               </div>
             </div>
           </div>
 
           <!-- Galvintec -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="galvintec">
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">09/2022 — 03/2023</span>
@@ -393,11 +360,6 @@
                   <li>Implemented QR code scanning for room check-in using ZXing and Barcode Scanner libraries.</li>
                   <li>Participated in API design, frontend development, testing and deployment pipeline setup.</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">Angular</span><span class="tag">React Native</span>
-                  <span class="tag">Cordova</span><span class="tag">ZXing</span>
-                  <span class="tag">REST API</span><span class="tag">Role-based Access</span>
-                </div>
               </div>
             </div>
           </div>
@@ -405,7 +367,7 @@
           <div class="timeline__section-label" data-i18n="experience.label_edu"></div>
 
           <!-- Hack a Boss -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="hackaboss">
             <div class="timeline__dot timeline__dot--edu"></div>
             <div class="timeline__card">
               <span class="timeline__date">06/2025 — 10/2025</span>
@@ -428,19 +390,12 @@
                   <li>Neural networks and Deep Learning with TensorFlow/Keras for classification and NLP tasks.</li>
                   <li>End-to-end data pipelines: collection, cleaning, EDA, feature engineering, model training and evaluation.</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">Python</span><span class="tag">NumPy</span>
-                  <span class="tag">Pandas</span><span class="tag">Matplotlib</span>
-                  <span class="tag">Seaborn</span><span class="tag">Scikit-learn</span>
-                  <span class="tag">TensorFlow</span><span class="tag">Keras</span>
-                  <span class="tag">ML</span><span class="tag">Deep Learning</span>
-                </div>
               </div>
             </div>
           </div>
 
           <!-- DAW -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="daw">
             <div class="timeline__dot timeline__dot--edu"></div>
             <div class="timeline__card">
               <span class="timeline__date">2023 — 2024</span>
@@ -461,18 +416,12 @@
                   <li>Designed and queried relational database schemas using MySQL and phpMyAdmin.</li>
                   <li>Collaborated with the internal team using Git version control and code review workflows.</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">PHP</span><span class="tag">MySQL</span>
-                  <span class="tag">HTML5</span><span class="tag">CSS3</span>
-                  <span class="tag">JavaScript</span><span class="tag">phpMyAdmin</span>
-                  <span class="tag">Git</span>
-                </div>
               </div>
             </div>
           </div>
 
           <!-- DAM -->
-          <div class="timeline__item">
+          <div class="timeline__item" data-tools="dam">
             <div class="timeline__dot timeline__dot--edu"></div>
             <div class="timeline__card">
               <span class="timeline__date">2020 — 2022</span>
@@ -495,12 +444,6 @@
                   <li>Recognised for academic excellence — "Matrícula de Honor" awarded to the top student of the cohort.</li>
                   <li>Internship at Galvintec subsequently led to a full employment contract (see above).</li>
                 </ul>
-                <div class="timeline__extra-tags">
-                  <span class="tag">Angular</span><span class="tag">React</span>
-                  <span class="tag">Redux</span><span class="tag">React Native</span>
-                  <span class="tag">Cordova</span><span class="tag">Git</span>
-                  <span class="tag">Agile</span>
-                </div>
               </div>
             </div>
           </div>

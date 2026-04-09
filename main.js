@@ -200,6 +200,143 @@ document.querySelectorAll('.project-card, .contact__form, .skills-panel')
   });
 
 /* ═══════════════════════════════════════════
+   SKILLS PANEL — panel dinámico izquierdo
+═══════════════════════════════════════════ */
+const DEVICONS = {
+  html5:        { cls: 'devicon-html5-plain colored',          tip: 'HTML5' },
+  css3:         { cls: 'devicon-css3-plain colored',           tip: 'CSS3' },
+  javascript:   { cls: 'devicon-javascript-plain colored',     tip: 'JavaScript' },
+  typescript:   { cls: 'devicon-typescript-plain colored',     tip: 'TypeScript' },
+  angular:      { cls: 'devicon-angular-plain colored',        tip: 'Angular' },
+  react:        { cls: 'devicon-react-original colored',       tip: 'React' },
+  reactnative:  { cls: 'devicon-react-original colored',       tip: 'React Native' },
+  redux:        { cls: 'devicon-redux-original colored',       tip: 'Redux' },
+  nodejs:       { cls: 'devicon-nodejs-plain colored',         tip: 'Node.js' },
+  java:         { cls: 'devicon-java-plain colored',           tip: 'Java' },
+  php:          { cls: 'devicon-php-plain colored',            tip: 'PHP' },
+  laravel:      { cls: 'devicon-laravel-plain colored',        tip: 'Laravel' },
+  androidstudio:{ cls: 'devicon-androidstudio-plain colored',  tip: 'Android Studio' },
+  python:       { cls: 'devicon-python-plain colored',         tip: 'Python' },
+  numpy:        { cls: 'devicon-numpy-plain colored',          tip: 'NumPy' },
+  scikitlearn:  { cls: 'devicon-scikitlearn-plain colored',    tip: 'Scikit-learn' },
+  matplotlib:   { cls: 'devicon-matplotlib-plain colored',     tip: 'Matplotlib' },
+  pandas:       { cls: 'devicon-pandas-plain colored',         tip: 'Pandas' },
+  tensorflow:   { cls: 'devicon-tensorflow-original colored',  tip: 'TensorFlow' },
+  keras:        { cls: 'devicon-keras-plain colored',          tip: 'Keras' },
+  mysql:        { cls: 'devicon-mysql-plain colored',          tip: 'MySQL' },
+  mariadb:      { cls: 'devicon-mariadb-plain colored',        tip: 'MariaDB' },
+  postgresql:   { cls: 'devicon-postgresql-plain colored',     tip: 'PostgreSQL' },
+  git:          { cls: 'devicon-git-plain colored',            tip: 'Git' },
+};
+
+const TOOLS_MAP = {
+  epo: {
+    label: 'AV Stack',
+    groups: [
+      { label: 'Control & Conference', type: 'av', items: [
+        { name: 'Crestron',       desc: 'AV automation & control platform' },
+        { name: 'Televic Plixus', desc: 'Conference microphone network system' },
+      ]},
+      { label: 'Audio', type: 'av', items: [
+        { name: 'Allen & Heath', desc: 'Professional live audio mixers' },
+        { name: 'Plixus Engine', desc: 'Mic & translation channel management' },
+      ]},
+      { label: 'Infrastructure', type: 'av', items: [
+        { name: 'KVM Switch',  desc: 'Multi-system keyboard/video/mouse switching' },
+        { name: 'Web Control', desc: 'Remote control via AV web interfaces' },
+      ]},
+    ],
+  },
+  freelance: {
+    label: 'Dev Stack',
+    groups: [
+      { label: 'Frontend', type: 'dev', items: ['javascript', 'typescript', 'react', 'html5', 'css3'] },
+      { label: 'Backend',  type: 'dev', items: ['nodejs'] },
+    ],
+  },
+  demesix: {
+    label: 'Dev Stack',
+    groups: [
+      { label: 'Mobile', type: 'dev', items: ['java', 'androidstudio'] },
+    ],
+  },
+  galvintec: {
+    label: 'Dev Stack',
+    groups: [
+      { label: 'Web',    type: 'dev', items: ['angular', 'typescript'] },
+      { label: 'Mobile', type: 'dev', items: ['reactnative'] },
+    ],
+  },
+  hackaboss: {
+    label: 'AI & Data Stack',
+    groups: [
+      { label: 'Data Science',  type: 'dev', items: ['python', 'numpy', 'pandas', 'matplotlib', 'scikitlearn'] },
+      { label: 'Deep Learning', type: 'dev', items: ['tensorflow', 'keras'] },
+    ],
+  },
+  daw: {
+    label: 'Dev Stack',
+    groups: [
+      { label: 'Backend',  type: 'dev', items: ['php', 'laravel'] },
+      { label: 'Database', type: 'dev', items: ['mysql'] },
+      { label: 'Frontend', type: 'dev', items: ['html5', 'css3', 'javascript'] },
+    ],
+  },
+  dam: {
+    label: 'Dev Stack',
+    groups: [
+      { label: 'Frontend & Mobile', type: 'dev', items: ['angular', 'react', 'redux', 'reactnative'] },
+      { label: 'Database & Tools',  type: 'dev', items: ['mysql', 'mariadb', 'androidstudio'] },
+    ],
+  },
+};
+
+let _currentToolsId = null;
+
+function updateSkillsPanel(itemId) {
+  if (itemId === _currentToolsId) return;
+  _currentToolsId = itemId;
+
+  const body = document.getElementById('skillsPanelBody');
+  if (!body) return;
+
+  const data = itemId && TOOLS_MAP[itemId];
+
+  // Fade out → swap content → fade in
+  body.style.opacity   = '0';
+  body.style.transform = 'translateY(6px)';
+
+  setTimeout(() => {
+    if (!data) {
+      body.innerHTML = '<p class="skills-panel__hint">↓ Scroll para ver el stack</p>';
+    } else {
+      let html = `<h3 class="skills-panel__title">${data.label}</h3>`;
+      data.groups.forEach(g => {
+        html += `<div class="skill-group"><p class="skill-group__label">${g.label}</p>`;
+        if (g.type === 'av') {
+          html += '<div class="av-grid">';
+          g.items.forEach(it => {
+            html += `<div class="av-chip" data-desc="${it.desc}">${it.name}</div>`;
+          });
+          html += '</div>';
+        } else {
+          html += '<div class="tech-grid">';
+          g.items.forEach(key => {
+            const ic = DEVICONS[key];
+            if (ic) html += `<div class="tech-icon" data-tip="${ic.tip}"><i class="${ic.cls}"></i></div>`;
+          });
+          html += '</div>';
+        }
+        html += '</div>';
+      });
+      body.innerHTML = html;
+    }
+    body.style.opacity   = '1';
+    body.style.transform = 'translateY(0)';
+  }, 200);
+}
+
+/* ═══════════════════════════════════════════
    TIMELINE — scroll narrativo (list-view)
 
    Un solo item activo a la vez — el último cuyo top
@@ -223,6 +360,8 @@ function updateTimeline() {
     item.classList.toggle('is-active', isActive);
     card.classList.toggle('is-expanded', isActive);
   });
+
+  updateSkillsPanel(activeItem ? activeItem.dataset.tools : null);
 }
 
 window.addEventListener('scroll', updateTimeline, { passive: true });
