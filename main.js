@@ -200,33 +200,28 @@ document.querySelectorAll('.project-card, .contact__form, .skills-panel')
   });
 
 /* ═══════════════════════════════════════════
-   TIMELINE — scroll narrativo
+   TIMELINE — scroll narrativo (list-view)
 
-   La card tiene position:sticky; top:15vh → se ancla sola.
-   El dot está en flujo normal → se mueve hacia arriba.
-   El item recibe padding-bottom = altura del extra expandido
-   → el siguiente dot se aleja exactamente lo necesario.
+   Un solo item activo a la vez — el último cuyo top
+   ha cruzado el 50 % de la ventana.
+   La card se expande en flujo normal (sin sticky),
+   empujando hacia abajo los items siguientes.
 ═══════════════════════════════════════════ */
 function updateTimeline() {
-  const stickyTop = window.innerHeight * 0.15; // coincide con CSS top: 15vh
+  const items    = document.querySelectorAll('.timeline__item');
+  const triggerY = window.innerHeight * 0.5; // mitad de la ventana
 
-  document.querySelectorAll('.timeline__item').forEach(item => {
-    const rect  = item.getBoundingClientRect();
-    const card  = item.querySelector('.timeline__card');
-    const extra = item.querySelector('.timeline__extra');
+  // El item activo es el último cuyo top ya pasó triggerY
+  let activeItem = null;
+  items.forEach(item => {
+    if (item.getBoundingClientRect().top <= triggerY) activeItem = item;
+  });
 
-    // Activo: el item ha pasado la línea sticky y aún no ha salido
-    const isActive = rect.top < stickyTop && rect.bottom > stickyTop + 80;
-
+  items.forEach(item => {
+    const card    = item.querySelector('.timeline__card');
+    const isActive = item === activeItem;
     item.classList.toggle('is-active', isActive);
     card.classList.toggle('is-expanded', isActive);
-
-    // Ajustar padding-bottom al alto real del contenido extra de ESTE item
-    if (isActive && extra) {
-      item.style.paddingBottom = (extra.scrollHeight + 24) + 'px';
-    } else {
-      item.style.paddingBottom = '20px';
-    }
   });
 }
 

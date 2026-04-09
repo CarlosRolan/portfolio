@@ -732,10 +732,9 @@ ul { list-style: none; }
 .timeline__item {
   display: flex;
   gap: 20px;
-  padding-bottom: 20px;   /* base — JS sobreescribe cuando expande */
+  padding-bottom: 20px;
   margin-bottom: 0;
   position: relative;
-  transition: padding-bottom 0.7s cubic-bezier(.4,0,.2,1);
 }
 
 .timeline__item::before {
@@ -781,8 +780,6 @@ ul { list-style: none; }
   border-radius: var(--radius);
   padding: 20px 24px;
   flex: 1;
-  position: sticky;
-  top: 15vh;           /* la card se ancla sola; el dot no */
   align-self: start;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
