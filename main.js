@@ -201,22 +201,30 @@ document.querySelectorAll('.project-card, .contact__form, .skills-panel')
 
 /* ═══════════════════════════════════════════
    TIMELINE — scroll narrativo
-   La card se expande cuando su item atraviesa
-   el punto de anclaje (20vh desde el top).
-   Se colapsa al salir.
+
+   Dos fases por item:
+   1) La card se PEGA (sticky) cuando item.top < 20vh
+      → el usuario ve el resumen un momento
+   2) La card se EXPANDE cuando item.top < -120px
+      → el item ha seguido scrolleando, la card
+        lleva ya un rato visible y estable
+   La card se CONTRAE cuando el item sale por arriba.
 ═══════════════════════════════════════════ */
 function updateTimeline() {
-  const anchor = window.innerHeight * 0.20; // punto de anclaje = top de la card sticky
+  const stickyPoint = window.innerHeight * 0.20; // 20vh — donde la card se pega
+  const expandDelay = 120;                        // px extra antes de expandir
 
   document.querySelectorAll('.timeline__item').forEach(item => {
-    const rect   = item.getBoundingClientRect();
-    const card   = item.querySelector('.timeline__card');
+    const rect = item.getBoundingClientRect();
+    const card = item.querySelector('.timeline__card');
 
-    // El item está "activo" mientras su contenedor atraviesa el punto de anclaje:
-    // top del item ya pasó el anchor Y el bottom del item aún no lo ha superado
-    const isActive = rect.top <= anchor && rect.bottom > anchor + 80;
+    // Fase 1 — card pega cuando rect.top < stickyPoint (20vh)
+    // Fase 2 — card expande 120px después: rect.top < stickyPoint - expandDelay
+    // Fase 3 — card contrae cuando el item casi ha salido
+    const expandAt  = stickyPoint - expandDelay;          // e.g. ~40px
+    const isExpanded = rect.top < expandAt && rect.bottom > stickyPoint + 200;
 
-    card.classList.toggle('is-expanded', isActive);
+    card.classList.toggle('is-expanded', isExpanded);
   });
 }
 
