@@ -487,7 +487,7 @@ ul { list-style: none; }
 
 .experience__layout {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 340px 1fr;
   gap: 64px;
   align-items: start;
 }
@@ -578,13 +578,13 @@ ul { list-style: none; }
   background: var(--clr-surface2);
   border: 1px solid var(--clr-border);
   border-radius: var(--radius);
-  padding: 0 0 24px;
+  padding: 0 0 32px;
   overflow: hidden;
 }
 
 /* Cuerpo dinámico */
 .skills-panel__body {
-  padding: 0 24px;
+  padding: 0 28px;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
@@ -597,8 +597,8 @@ ul { list-style: none; }
 
 .skills-panel__title {
   font-family: var(--font-head);
-  font-size: 1rem;
-  padding-top: 20px;
+  font-size: 1.05rem;
+  padding-top: 24px;
   font-weight: 700;
   margin-bottom: 24px;
   color: var(--clr-text);
@@ -689,13 +689,13 @@ ul { list-style: none; }
 .tech-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .tech-icon {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -707,7 +707,7 @@ ul { list-style: none; }
 }
 
 .tech-icon i {
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1;
 }
 
