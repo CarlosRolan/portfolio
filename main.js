@@ -368,6 +368,75 @@ window.addEventListener('scroll', updateTimeline, { passive: true });
 updateTimeline();
 
 /* ═══════════════════════════════════════════
+   STACK POPUP — descripción al hacer click
+═══════════════════════════════════════════ */
+const TECH_INFO = {
+  html5:        { name: 'HTML5',          icon: 'devicon-html5-plain colored',          desc: 'Lenguaje de marcado que estructura el contenido de la web. Incluye APIs nativas para multimedia, canvas, geolocalización y almacenamiento local.' },
+  css3:         { name: 'CSS3',           icon: 'devicon-css3-plain colored',           desc: 'Lenguaje de estilos para diseñar y animar interfaces web. Flexbox, Grid, transiciones y custom properties son sus pilares modernos.' },
+  javascript:   { name: 'JavaScript',     icon: 'devicon-javascript-plain colored',     desc: 'El lenguaje de la web. Permite interactividad en el navegador y, con Node.js, también en el servidor. Base de React, Angular y otros frameworks.' },
+  typescript:   { name: 'TypeScript',     icon: 'devicon-typescript-plain colored',     desc: 'Superset de JavaScript con tipado estático. Detecta errores en compilación y mejora el autocompletado en proyectos a gran escala.' },
+  angular:      { name: 'Angular',        icon: 'devicon-angular-plain colored',        desc: 'Framework SPA de Google con arquitectura basada en componentes, inyección de dependencias y RxJS. Ideal para aplicaciones empresariales.' },
+  react:        { name: 'React',          icon: 'devicon-react-original colored',       desc: 'Librería de UI de Meta para construir componentes reutilizables. Virtual DOM, hooks y un ecosistema enorme la hacen la opción más popular de frontend.' },
+  reactnative:  { name: 'React Native',   icon: 'devicon-react-original colored',       desc: 'Permite construir apps iOS y Android con React y JavaScript, compilando a componentes nativos reales en lugar de una WebView.' },
+  redux:        { name: 'Redux',          icon: 'devicon-redux-original colored',       desc: 'Gestor de estado global predecible para JavaScript. Patrón unidireccional: actions → reducers → store → UI. Muy usado con React.' },
+  nodejs:       { name: 'Node.js',        icon: 'devicon-nodejs-plain colored',         desc: 'Entorno de ejecución de JavaScript en servidor basado en el motor V8 de Chrome. Ideal para APIs REST, microservicios y apps en tiempo real.' },
+  java:         { name: 'Java',           icon: 'devicon-java-plain colored',           desc: 'Lenguaje orientado a objetos fuertemente tipado y multiplataforma. Ampliamente usado en Android, aplicaciones empresariales y backend.' },
+  php:          { name: 'PHP',            icon: 'devicon-php-plain colored',            desc: 'Lenguaje de scripting de servidor diseñado para desarrollo web. Potencia WordPress, Laravel y multitud de sistemas CMS en producción.' },
+  laravel:      { name: 'Laravel',        icon: 'devicon-laravel-plain colored',        desc: 'Framework PHP elegante con ORM Eloquent, routing expresivo y Blade templates. Ecosistema completo para aplicaciones web modernas.' },
+  androidstudio:{ name: 'Android Studio', icon: 'devicon-androidstudio-plain colored',  desc: 'IDE oficial de Google para desarrollo Android. Incluye emuladores, Layout Editor y soporte completo para Java y Kotlin.' },
+  python:       { name: 'Python',         icon: 'devicon-python-plain colored',         desc: 'Lenguaje versátil y legible, líder en ciencia de datos, ML, scripting y automatización. Ecosistema de librerías científicas inmenso.' },
+  numpy:        { name: 'NumPy',          icon: 'devicon-numpy-plain colored',          desc: 'Librería fundamental para computación numérica en Python. Arrays n-dimensionales y operaciones matemáticas optimizadas en C.' },
+  pandas:       { name: 'Pandas',         icon: 'devicon-pandas-plain colored',         desc: 'Librería de análisis y manipulación de datos tabulares en Python. DataFrames, series temporales, limpieza y agregación de datos.' },
+  matplotlib:   { name: 'Matplotlib',     icon: 'devicon-matplotlib-plain colored',     desc: 'Librería de visualización de datos en Python. Genera gráficas estáticas, animadas e interactivas con control total sobre el estilo.' },
+  scikitlearn:  { name: 'Scikit-learn',   icon: 'devicon-scikitlearn-plain colored',    desc: 'Librería de machine learning en Python con algoritmos de clasificación, regresión, clustering y reducción dimensional listos para usar.' },
+  tensorflow:   { name: 'TensorFlow',     icon: 'devicon-tensorflow-original colored',  desc: 'Framework de deep learning de Google. Construye y entrena redes neuronales para visión artificial, NLP y aprendizaje por refuerzo.' },
+  keras:        { name: 'Keras',          icon: 'devicon-keras-plain colored',          desc: 'API de alto nivel integrada en TensorFlow. Simplifica la definición de capas y arquitecturas de redes neuronales profundas.' },
+  mysql:        { name: 'MySQL',          icon: 'devicon-mysql-plain colored',          desc: 'Sistema de gestión de bases de datos relacional open source más popular de la web. Soporte de transacciones ACID y SQL estándar.' },
+  mariadb:      { name: 'MariaDB',        icon: 'devicon-mariadb-plain colored',        desc: 'Fork open source de MySQL con mejoras de rendimiento y nuevos motores de almacenamiento. Totalmente compatible con el ecosistema MySQL.' },
+  git:          { name: 'Git',            icon: 'devicon-git-plain colored',            desc: 'Sistema de control de versiones distribuido. Ramas, merges, rebase y stash para gestionar el historial de cualquier proyecto de software.' },
+};
+
+(function () {
+  const popup     = document.getElementById('techPopup');
+  const popupIcon = document.getElementById('techPopupIcon');
+  const popupName = document.getElementById('techPopupName');
+  const popupDesc = document.getElementById('techPopupDesc');
+  const closeBtn  = document.getElementById('techPopupClose');
+
+  function showPopup(techKey) {
+    const info = TECH_INFO[techKey];
+    if (!info) return;
+    popupIcon.className = info.icon;
+    popupName.textContent = info.name;
+    popupDesc.textContent = info.desc;
+    popup.hidden = false;
+    requestAnimationFrame(() => popup.classList.add('is-visible'));
+  }
+
+  function hidePopup() {
+    popup.classList.remove('is-visible');
+    popup.addEventListener('transitionend', () => { popup.hidden = true; }, { once: true });
+  }
+
+  // Delegación en el grid completo
+  document.querySelectorAll('.stack-item').forEach(item => {
+    item.addEventListener('click', e => {
+      e.stopPropagation();
+      const key = item.dataset.tech;
+      if (popup.classList.contains('is-visible') && popupName.textContent === (TECH_INFO[key]?.name)) {
+        hidePopup();
+      } else {
+        showPopup(key);
+      }
+    });
+  });
+
+  closeBtn.addEventListener('click', e => { e.stopPropagation(); hidePopup(); });
+  document.addEventListener('click', () => { if (!popup.hidden) hidePopup(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hidePopup(); });
+})();
+
+/* ═══════════════════════════════════════════
    INIT — cargar idioma guardado o español
 ═══════════════════════════════════════════ */
 applyLang(localStorage.getItem('lang') || 'es');

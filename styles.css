@@ -504,73 +504,143 @@ ul { list-style: none; }
    STACK SECTION — vitrina de tecnologías
 ══════════════════════════════════════════ */
 .stack-section {
-  padding: 80px 0 72px;
-  overflow: hidden;
+  padding: 80px 0 88px;
   background: var(--clr-surface);
   border-top:    1px solid var(--clr-border);
   border-bottom: 1px solid var(--clr-border);
 }
 
-.stack-section .section-header { margin-bottom: 52px; }
+.stack-section .section-header { margin-bottom: 56px; }
 
-.stack-rows {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Grid de 8 columnas en desktop, fluido en móvil */
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 16px;
 }
 
-.stack-row {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-  mask-image:         linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-}
-
-.stack-track {
-  display: flex;
-  align-items: center;
-  gap: 0;             /* margin-right on items handles spacing */
-  width: max-content;
-  animation: ticker-scroll 36s linear infinite;
-}
-
-.stack-row--rev .stack-track { animation-direction: reverse; }
-.stack-track:hover            { animation-play-state: paused; }
-
+/* Cada item: card clickable con float animado */
 .stack-item {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  margin-right: 48px;   /* slot width = icon + this gap */
-  flex-shrink: 0;
-  transition: transform 0.2s ease;
+  gap: 12px;
+  padding: 22px 12px 18px;
+  border-radius: 14px;
+  border: 1px solid var(--clr-border);
+  background: var(--clr-surface2);
+  cursor: pointer;
+  animation: tech-float 3.5s ease-in-out infinite;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  user-select: none;
 }
 
-.stack-item:hover { transform: translateY(-5px); }
+.stack-item:hover {
+  border-color: var(--clr-accent);
+  box-shadow: 0 8px 28px #0ea5e922;
+  animation-play-state: paused;
+}
+
+.stack-item:active { transform: scale(0.95); }
 
 .stack-item i {
-  font-size: 3.2rem;
-  opacity: 0.65;
+  font-size: 2.8rem;
+  opacity: 0.75;
   transition: opacity 0.2s;
+  pointer-events: none;
 }
 
 .stack-item:hover i { opacity: 1; }
 
 .stack-item span {
-  font-size: .68rem;
+  font-size: .65rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .07em;
   color: var(--clr-muted);
-  white-space: nowrap;
+  text-align: center;
   transition: color 0.2s;
+  pointer-events: none;
 }
 
 .stack-item:hover span { color: var(--clr-text); }
 
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* Stagger del float — ciclo de 8 offsets */
+.stack-item:nth-child(8n+1) { animation-delay: 0s;    animation-duration: 3.3s; }
+.stack-item:nth-child(8n+2) { animation-delay: .45s;  animation-duration: 3.7s; }
+.stack-item:nth-child(8n+3) { animation-delay: .9s;   animation-duration: 3.1s; }
+.stack-item:nth-child(8n+4) { animation-delay: 1.35s; animation-duration: 3.9s; }
+.stack-item:nth-child(8n+5) { animation-delay: 1.8s;  animation-duration: 3.5s; }
+.stack-item:nth-child(8n+6) { animation-delay: 2.25s; animation-duration: 3.2s; }
+.stack-item:nth-child(8n+7) { animation-delay: 2.7s;  animation-duration: 4.0s; }
+.stack-item:nth-child(8n+8) { animation-delay: 3.15s; animation-duration: 3.6s; }
+
+@keyframes tech-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-9px); }
+}
+
+/* ── Tech popup (no bloqueante) ── */
+.tech-popup {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(16px);
+  background: var(--clr-surface2);
+  border: 1px solid var(--clr-accent);
+  border-radius: 16px;
+  padding: 20px 24px 22px;
+  width: min(380px, calc(100vw - 40px));
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 16px 48px #00000055, 0 0 0 1px #0ea5e920;
+}
+
+.tech-popup.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.tech-popup__close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: none;
+  border: none;
+  color: var(--clr-muted);
+  font-size: 1rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.tech-popup__close:hover { color: var(--clr-text); }
+
+.tech-popup__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.tech-popup__head i {
+  font-size: 2rem;
+}
+
+.tech-popup__head strong {
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  color: var(--clr-text);
+}
+
+#techPopupDesc {
+  font-size: .88rem;
+  color: var(--clr-muted);
+  line-height: 1.65;
+  margin: 0;
 }
 
 /* ── Skills panel ── */
