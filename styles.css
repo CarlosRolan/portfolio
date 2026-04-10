@@ -500,6 +500,41 @@ ul { list-style: none; }
   top: calc(var(--nav-h) + 24px);
 }
 
+/* ── Tech banner (entre proyectos y CV) ── */
+.tech-banner {
+  overflow: hidden;
+  padding: 20px 0;
+  border-top:    1px solid var(--clr-border);
+  border-bottom: 1px solid var(--clr-border);
+  background: var(--clr-surface);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  mask-image:         linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.tech-banner__track {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  width: max-content;
+  animation: ticker-scroll 26s linear infinite;
+  padding: 0 14px;
+}
+
+.tech-banner__track i {
+  font-size: 2rem;
+  opacity: 0.5;
+  transition: opacity 0.2s, transform 0.2s;
+  flex-shrink: 0;
+}
+
+.tech-banner__track:hover { animation-play-state: paused; }
+.tech-banner__track i:hover { opacity: 1; transform: scale(1.2); }
+
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ── Skills panel ── */
 .skills-panel {
   background: var(--clr-surface2);
@@ -507,40 +542,6 @@ ul { list-style: none; }
   border-radius: var(--radius);
   padding: 0 0 24px;
   overflow: hidden;
-}
-
-/* Ticker: banner de iconos en bucle horizontal */
-.skills-ticker {
-  overflow: hidden;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--clr-border);
-  margin-bottom: 20px;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
-  mask-image:         linear-gradient(to right, transparent, #000 18%, #000 82%, transparent);
-}
-
-.skills-ticker__track {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  width: max-content;
-  animation: ticker-scroll 22s linear infinite;
-  padding: 0 11px; /* half-gap so it loops cleanly */
-}
-
-.skills-ticker__track i {
-  font-size: 1.7rem;
-  opacity: 0.55;
-  transition: opacity 0.2s;
-  flex-shrink: 0;
-}
-
-.skills-ticker__track:hover { animation-play-state: paused; }
-.skills-ticker__track i:hover { opacity: 1; }
-
-@keyframes ticker-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
 }
 
 /* Cuerpo dinámico */
@@ -559,6 +560,7 @@ ul { list-style: none; }
 .skills-panel__title {
   font-family: var(--font-head);
   font-size: 1rem;
+  padding-top: 20px;
   font-weight: 700;
   margin-bottom: 24px;
   color: var(--clr-text);
