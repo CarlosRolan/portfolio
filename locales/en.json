@@ -12,6 +12,10 @@
     "cta_projects": "View projects",
     "cta_contact": "Contact me"
   },
+  "stack": {
+    "tag": "Technologies",
+    "title": "My stack"
+  },
   "projects": {
     "tag": "My projects",
     "title": "What I've built",

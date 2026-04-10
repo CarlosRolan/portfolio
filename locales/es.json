@@ -12,6 +12,10 @@
     "cta_projects": "Ver proyectos",
     "cta_contact": "Contáctame"
   },
+  "stack": {
+    "tag": "Tecnologías",
+    "title": "Mi stack"
+  },
   "projects": {
     "tag": "Mis proyectos",
     "title": "Lo que he construido",

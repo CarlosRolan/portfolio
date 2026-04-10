@@ -500,35 +500,73 @@ ul { list-style: none; }
   top: calc(var(--nav-h) + 24px);
 }
 
-/* ── Tech banner (entre proyectos y CV) ── */
-.tech-banner {
+/* ══════════════════════════════════════════
+   STACK SECTION — vitrina de tecnologías
+══════════════════════════════════════════ */
+.stack-section {
+  padding: 80px 0 72px;
   overflow: hidden;
-  padding: 20px 0;
+  background: var(--clr-surface);
   border-top:    1px solid var(--clr-border);
   border-bottom: 1px solid var(--clr-border);
-  background: var(--clr-surface);
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
-  mask-image:         linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
 }
 
-.tech-banner__track {
+.stack-section .section-header { margin-bottom: 52px; }
+
+.stack-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stack-row {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image:         linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.stack-track {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 0;             /* margin-right on items handles spacing */
   width: max-content;
-  animation: ticker-scroll 26s linear infinite;
-  padding: 0 14px;
+  animation: ticker-scroll 36s linear infinite;
 }
 
-.tech-banner__track i {
-  font-size: 2rem;
-  opacity: 0.5;
-  transition: opacity 0.2s, transform 0.2s;
+.stack-row--rev .stack-track { animation-direction: reverse; }
+.stack-track:hover            { animation-play-state: paused; }
+
+.stack-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-right: 48px;   /* slot width = icon + this gap */
   flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.tech-banner__track:hover { animation-play-state: paused; }
-.tech-banner__track i:hover { opacity: 1; transform: scale(1.2); }
+.stack-item:hover { transform: translateY(-5px); }
+
+.stack-item i {
+  font-size: 3.2rem;
+  opacity: 0.65;
+  transition: opacity 0.2s;
+}
+
+.stack-item:hover i { opacity: 1; }
+
+.stack-item span {
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--clr-muted);
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.stack-item:hover span { color: var(--clr-text); }
 
 @keyframes ticker-scroll {
   from { transform: translateX(0); }
