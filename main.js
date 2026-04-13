@@ -80,7 +80,7 @@ async function applyLang(lang) {
     const nr   = navLogo.getBoundingClientRect();
     const endCX = nr.left + nr.width  / 2;
     const endCY = nr.top  + nr.height / 2;
-    const endSize = nr.width;
+    const endSize = 36;
 
     // Interpolar posición y tamaño
     const cx   = lerp(startCX, endCX,   p);
