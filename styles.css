@@ -324,15 +324,16 @@ ul { list-style: none; }
 .avatar-placeholder {
   width: 100%; height: 100%;
   border-radius: 50%;
+  overflow: hidden;
   background: var(--clr-surface2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-head);
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--clr-accent);
   animation: spin 8s linear infinite reverse;
+}
+
+.avatar-placeholder img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
 .hero__scroll {
@@ -1149,6 +1150,7 @@ ul { list-style: none; }
 }
 
 .floating-avatar__inner {
+  position: relative;
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -1163,6 +1165,28 @@ ul { list-style: none; }
   overflow: hidden;
 }
 
+/* Foto: capa superior, se desvanece según progreso */
+.floating-avatar__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 1;          /* JS actualiza esto */
+  transition: opacity 0.05s linear;
+}
+
+/* Iniciales: debajo de la foto, aparecen al final */
+.floating-avatar__initials {
+  position: relative;
+  z-index: 1;
+  line-height: 1;
+  opacity: 0;          /* JS actualiza esto */
+  transition: opacity 0.05s linear;
+}
+
+/* Ya no se usa, pero por si acaso */
 .floating-avatar__inner img {
   width: 100%;
   height: 100%;

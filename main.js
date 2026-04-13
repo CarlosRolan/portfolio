@@ -98,9 +98,14 @@ async function applyLang(lang) {
     // Nav logo CR desaparece cuando llega el avatar
     navLogo.style.opacity   = Math.max(1 - p * 6, 0);
 
-    // Ajuste de font-size del placeholder CR
-    const inner = floatingAv.querySelector('.floating-avatar__inner');
-    if (inner) inner.style.fontSize = Math.max(size * 0.32, 10) + 'px';
+    // Ajuste de font-size de las iniciales
+    const inner    = floatingAv.querySelector('.floating-avatar__inner');
+    const photo    = floatingAv.querySelector('.floating-avatar__photo');
+    const initials = floatingAv.querySelector('.floating-avatar__initials');
+    if (inner)    inner.style.fontSize    = Math.max(size * 0.32, 10) + 'px';
+    // Cross-fade: foto desaparece, iniciales aparecen
+    if (photo)    photo.style.opacity    = 1 - p;
+    if (initials) initials.style.opacity = p;
   }
 
   window.addEventListener('load',   captureHero,    { once: true });
