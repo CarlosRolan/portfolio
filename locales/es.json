@@ -48,7 +48,12 @@
     "filter_mobile": "Mobile",
     "filter_ai": "IA",
     "open_demo": "Abrir demo →",
-    "view_github": "Ver en GitHub →"
+    "view_github": "Ver en GitHub →",
+    "bushy_title": "Bushy Labyrinth",
+    "bushy_desc": "Un juego multijugador de laberintos 3D que corre completamente en el navegador. Los jugadores exploran laberintos generados proceduralmente en tiempo real, conectados a través de WebSockets gestionados en el servidor.",
+    "bushy_h1": "Gestión de sockets en el servidor para multijugador en tiempo real",
+    "bushy_h2": "Mundo 3D con detección de colisiones propia",
+    "bushy_h3": "Jugable desde cualquier navegador — sin instalación"
   },
   "experience": {
     "tag": "Mi recorrido",

@@ -48,7 +48,12 @@
     "filter_mobile": "Mobile",
     "filter_ai": "KI",
     "open_demo": "Demo öffnen →",
-    "view_github": "Auf GitHub ansehen →"
+    "view_github": "Auf GitHub ansehen →",
+    "bushy_title": "Bushy Labyrinth",
+    "bushy_desc": "Ein Multiplayer-3D-Labyrinthspiel, das vollständig im Browser läuft. Spieler erkunden prozedural generierte Labyrinthe in Echtzeit, verbunden über eine serverseitig verwaltete WebSocket-Schicht.",
+    "bushy_h1": "Serverseitige Socket-Verwaltung für Echtzeit-Multiplayer",
+    "bushy_h2": "3D-Welt mit eigener Kollisionserkennung",
+    "bushy_h3": "In jedem Browser spielbar — keine Installation nötig"
   },
   "experience": {
     "tag": "Mein Werdegang",

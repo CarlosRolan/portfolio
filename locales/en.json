@@ -48,7 +48,12 @@
     "filter_mobile": "Mobile",
     "filter_ai": "AI",
     "open_demo": "Open demo →",
-    "view_github": "View on GitHub →"
+    "view_github": "View on GitHub →",
+    "bushy_title": "Bushy Labyrinth",
+    "bushy_desc": "A multiplayer 3D maze game running entirely in the browser. Players explore procedurally generated labyrinths in real time, all connected through a server-managed WebSocket layer.",
+    "bushy_h1": "Server-side socket management for real-time multiplayer",
+    "bushy_h2": "3D world rendering with custom collision detection",
+    "bushy_h3": "Runs in any browser — no installation needed"
   },
   "experience": {
     "tag": "My journey",
