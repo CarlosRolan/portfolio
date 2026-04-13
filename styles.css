@@ -135,13 +135,10 @@ ul { list-style: none; }
 
 .nav__logo {
   font-family: var(--font-head);
-  font-size: 1.3rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--clr-accent);
-  width: 42px; height: 42px;
-  display: flex; align-items: center; justify-content: center;
-  border: 2px solid var(--clr-accent);
-  border-radius: 10px;
+  letter-spacing: .04em;
   transition: opacity 0.35s ease;
 }
 
