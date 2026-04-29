@@ -1,4 +1,39 @@
 /* ═══════════════════════════════════════════
+   PAGE BACKGROUND — crossfade by timeline item
+═══════════════════════════════════════════ */
+const BG_IMAGES = {
+  epo:       'https://commons.wikimedia.org/wiki/Special:FilePath/European_Patent_Office_Munich.jpg',
+  freelance: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1920&q=80',
+  demesix:   'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1920&q=80',
+  galvintec: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1920&q=80',
+  hackaboss: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1920&q=80',
+  daw:       'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1920&q=80',
+  dam:       'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1920&q=80',
+};
+
+const bgLayerA   = document.getElementById('pageBgA');
+const bgLayerB   = document.getElementById('pageBgB');
+let   _bgFront   = 'A';
+let   _bgCurrent = null;
+
+function updateBackground(itemId) {
+  if (!itemId || itemId === _bgCurrent) return;
+  _bgCurrent = itemId;
+  const url = BG_IMAGES[itemId];
+  if (!url) return;
+
+  const next = _bgFront === 'A' ? bgLayerB : bgLayerA;
+  const prev = _bgFront === 'A' ? bgLayerA : bgLayerB;
+
+  next.style.backgroundImage = `url("${url}")`;
+  requestAnimationFrame(() => {
+    next.classList.add('is-visible');
+    prev.classList.remove('is-visible');
+  });
+  _bgFront = _bgFront === 'A' ? 'B' : 'A';
+}
+
+/* ═══════════════════════════════════════════
    i18n — carga de JSON y aplicación al DOM
 ═══════════════════════════════════════════ */
 const cache = {};
@@ -380,6 +415,7 @@ function updateTimeline() {
   });
 
   updateSkillsPanel(activeItem ? activeItem.dataset.tools : null);
+  updateBackground(activeItem ? activeItem.dataset.tools : null);
 }
 
 window.addEventListener('scroll', updateTimeline, { passive: true });

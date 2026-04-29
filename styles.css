@@ -3,6 +3,37 @@
 ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ═══════════════════════════════════════════
+   PAGE BACKGROUND — crossfade on timeline item
+═══════════════════════════════════════════ */
+#pageBg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--clr-bg);
+}
+.page-bg__img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.6s ease;
+  will-change: opacity;
+}
+.page-bg__img.is-visible { opacity: 1; }
+.page-bg__dim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 10, 22, 0.89) 0%,
+    rgba(8, 13, 26, 0.83) 50%,
+    rgba(6, 10, 22, 0.91) 100%
+  );
+}
+
 :root {
   --clr-bg:        #060a14;
   --clr-surface:   #0c1424;
@@ -509,7 +540,7 @@ ul { list-style: none; }
 ═══════════════════════════════════════════ */
 .experience {
   padding: 120px 0;
-  background: var(--clr-surface);
+  background: transparent;
   border-top: 1px solid var(--clr-border);
   border-bottom: 1px solid var(--clr-border);
 }
