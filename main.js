@@ -246,17 +246,22 @@ const TOOLS_MAP = {
   epo: {
     label: 'AV Stack',
     groups: [
+      { label: 'Video Production', type: 'av', items: [
+        { name: 'Panasonic AV-UHS5M', desc: '4K Live Switcher for multi-source broadcast production' },
+        { name: 'Panasonic AW-RP150', desc: 'PTZ camera controller — joystick-based pan/tilt/zoom for live events' },
+      ]},
       { label: 'Control & Conference', type: 'av', items: [
-        { name: 'Crestron',       desc: 'AV automation & control platform' },
-        { name: 'Televic Plixus', desc: 'Conference microphone network system' },
+        { name: 'Crestron',        desc: 'AV automation & custom touchpanel control (TSW series)' },
+        { name: 'Neat / Cisco',    desc: 'Webex-native video conferencing endpoints (Neat Bar, Neat Bar Pro, Neat Center) — managed via NeatPulse' },
+        { name: 'Televic Plixus',  desc: 'Conference microphone & simultaneous translation network system' },
       ]},
       { label: 'Audio', type: 'av', items: [
-        { name: 'Allen & Heath', desc: 'Professional live audio mixers' },
-        { name: 'Plixus Engine', desc: 'Mic & translation channel management' },
+        { name: 'Allen & Heath SQ-6', desc: '48-channel digital mixer for live audio, EQ and translation routing' },
+        { name: 'Biamp Tesira',       desc: 'DSP audio processor — integrated via Crestron touchpanel' },
       ]},
-      { label: 'Infrastructure', type: 'av', items: [
-        { name: 'KVM Switch',  desc: 'Multi-system keyboard/video/mouse switching' },
-        { name: 'Web Control', desc: 'Remote control via AV web interfaces' },
+      { label: 'Management', type: 'av', items: [
+        { name: 'NeatPulse',  desc: 'Cloud-based device management platform for Neat/Cisco endpoints' },
+        { name: 'KVM Switch', desc: 'Multi-system keyboard/video/mouse switching for translation booths' },
       ]},
     ],
   },
