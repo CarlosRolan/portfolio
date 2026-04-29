@@ -48,7 +48,7 @@
         <button class="lang-btn" data-lang="en"><span class="fi fi-gb"></span> EN</button>
         <button class="lang-btn" data-lang="de"><span class="fi fi-de"></span> DE</button>
       </div>
-      <button class="nav__burger" id="burger" aria-label="Menú">
+      <button class="nav__burger" id="burger" data-i18n-aria="nav.menu_aria">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -79,7 +79,7 @@
         </div>
       </div>
     </div>
-    <a href="#proyectos" class="hero__scroll" aria-label="Bajar">
+    <a href="#proyectos" class="hero__scroll" data-i18n-aria="hero.scroll_aria">
       <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </a>
   </section>
@@ -243,7 +243,7 @@
 
             <!-- Cuerpo dinámico — actualizado por JS según el item activo -->
             <div class="skills-panel__body" id="skillsPanelBody">
-              <p class="skills-panel__hint">↓ Scroll para ver el stack</p>
+              <p class="skills-panel__hint" data-i18n="experience.panel_hint"></p>
             </div>
 
           </aside>
@@ -260,24 +260,24 @@
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">11/2025 — <span data-i18n="experience.present"></span></span>
-              <h4 class="timeline__role">Technical Support — AV Systems</h4>
-              <p class="timeline__company">European Patent Office (EPO) · Munich, Germany</p>
+              <h4 class="timeline__role" data-i18n="experience.epo_role"></h4>
+              <p class="timeline__company" data-i18n="experience.epo_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.epo_b1"></li>
               </ul>
               <div class="timeline__extra">
                 <div class="timeline__extra-header">
                   <img class="timeline__extra-logo" src="https://www.google.com/s2/favicons?domain=epo.org&sz=64" alt="EPO" />
-                  <span class="timeline__extra-badge">🏛 International Organisation · 38 Member States</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.epo_badge"></span>
                 </div>
-                <p class="timeline__extra-desc">Working within the IT department of one of the world's leading IP organisations, providing AV support for live parliamentary sessions, board meetings and international conferences attended by patent examiners and delegates from across Europe.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.epo_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.epo_b2"></li>
                   <li data-i18n="experience.epo_b3"></li>
-                  <li>Configured and maintained Crestron control systems across 20+ conference rooms on the Munich campus.</li>
-                  <li>Provided real-time technical support during EP convention sessions, ensuring zero downtime on critical AV infrastructure.</li>
-                  <li>Diagnosed signal chain issues involving HDMI matrix switchers, signal extenders and display systems.</li>
-                  <li>Created technical documentation and trained end users on AV equipment operation.</li>
+                  <li data-i18n="experience.epo_b4"></li>
+                  <li data-i18n="experience.epo_b5"></li>
+                  <li data-i18n="experience.epo_b6"></li>
+                  <li data-i18n="experience.epo_b7"></li>
                 </ul>
               </div>
             </div>
@@ -288,8 +288,8 @@
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">01/2025 — 11/2025</span>
-              <h4 class="timeline__role">Freelance Full Stack Developer</h4>
-              <p class="timeline__company">Upwork / Fiverr · Vigo, Spain</p>
+              <h4 class="timeline__role" data-i18n="experience.freelance_role"></h4>
+              <p class="timeline__company" data-i18n="experience.freelance_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.freelance_b1"></li>
               </ul>
@@ -297,14 +297,14 @@
                 <div class="timeline__extra-header">
                   <img class="timeline__extra-logo" src="https://www.google.com/s2/favicons?domain=upwork.com&sz=64" alt="Upwork" />
                   <img class="timeline__extra-logo" src="https://www.google.com/s2/favicons?domain=fiverr.com&sz=64" alt="Fiverr" />
-                  <span class="timeline__extra-badge">🇬🇧 UK Defence Sector</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.freelance_badge"></span>
                 </div>
-                <p class="timeline__extra-desc">Operated independently as a Full Stack Developer, managing the full project lifecycle from requirements gathering to deployment, acquiring clients through Upwork and Fiverr and working remotely with international clients.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.freelance_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.freelance_b2"></li>
-                  <li>Managed client communication, technical documentation and delivery autonomously using Agile-inspired iterative cycles.</li>
-                  <li>Maintained top-rated status on both platforms through timely delivery and clear scope management.</li>
-                  <li>Handled deployment pipelines and hosting configuration for delivered projects.</li>
+                  <li data-i18n="experience.freelance_b3"></li>
+                  <li data-i18n="experience.freelance_b4"></li>
+                  <li data-i18n="experience.freelance_b5"></li>
                 </ul>
               </div>
             </div>
@@ -315,22 +315,22 @@
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">03/2023 — 09/2023</span>
-              <h4 class="timeline__role">Full Stack Developer</h4>
-              <p class="timeline__company">Demesix · Vigo, Spain</p>
+              <h4 class="timeline__role" data-i18n="experience.demesix_role"></h4>
+              <p class="timeline__company" data-i18n="experience.demesix_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.demesix_b1"></li>
               </ul>
               <div class="timeline__extra">
                 <div class="timeline__extra-header">
-                  <span class="timeline__extra-badge">📱 App: DTAXIS — Taxi Management</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.demesix_badge"></span>
                 </div>
-                <p class="timeline__extra-desc">DTAXIS is an Android application connecting taxi drivers with passengers in real time. Contributed to the core development team, focusing on user management, location features and device-specific compatibility for the Xiaomi ecosystem.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.demesix_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.demesix_b2"></li>
                   <li data-i18n="experience.demesix_b3"></li>
-                  <li>Integrated Google Maps SDK for real-time driver location tracking and route visualisation.</li>
-                  <li>Implemented runtime permission flows compliant with Android 10+ security model.</li>
-                  <li>Participated in daily stand-ups and sprint reviews following Scrum methodology.</li>
+                  <li data-i18n="experience.demesix_b4"></li>
+                  <li data-i18n="experience.demesix_b5"></li>
+                  <li data-i18n="experience.demesix_b6"></li>
                 </ul>
               </div>
             </div>
@@ -341,22 +341,22 @@
             <div class="timeline__dot"></div>
             <div class="timeline__card">
               <span class="timeline__date">09/2022 — 03/2023</span>
-              <h4 class="timeline__role">Full Stack Developer</h4>
-              <p class="timeline__company">Galvintec · Vigo, Spain</p>
+              <h4 class="timeline__role" data-i18n="experience.galvintec_role"></h4>
+              <p class="timeline__company" data-i18n="experience.galvintec_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.galvintec_b1"></li>
               </ul>
               <div class="timeline__extra">
                 <div class="timeline__extra-header">
-                  <span class="timeline__extra-badge">🖥 Web App + 📱 Mobile App</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.galvintec_badge"></span>
                 </div>
-                <p class="timeline__extra-desc">Part of the development team at a smart building solutions company, building two interconnected products: a web platform for meeting room management and a companion mobile application for on-site use.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.galvintec_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.galvintec_b2"></li>
                   <li data-i18n="experience.galvintec_b3"></li>
-                  <li>Architected an Angular SPA with real-time room availability, role-based access control and calendar integration.</li>
-                  <li>Implemented QR code scanning for room check-in using ZXing and Barcode Scanner libraries.</li>
-                  <li>Participated in API design, frontend development, testing and deployment pipeline setup.</li>
+                  <li data-i18n="experience.galvintec_b4"></li>
+                  <li data-i18n="experience.galvintec_b5"></li>
+                  <li data-i18n="experience.galvintec_b6"></li>
                 </ul>
               </div>
             </div>
@@ -369,24 +369,24 @@
             <div class="timeline__dot timeline__dot--edu"></div>
             <div class="timeline__card">
               <span class="timeline__date">06/2025 — 10/2025</span>
-              <h4 class="timeline__role">AI & Data Bootcamp</h4>
-              <p class="timeline__company">Hack a Boss · Online</p>
+              <h4 class="timeline__role" data-i18n="experience.hackaboss_role"></h4>
+              <p class="timeline__company" data-i18n="experience.hackaboss_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.hackaboss_b1"></li>
               </ul>
               <div class="timeline__extra">
                 <div class="timeline__extra-header">
                   <img class="timeline__extra-logo" src="https://www.google.com/s2/favicons?domain=hackaboss.com&sz=64" alt="Hack a Boss" />
-                  <span class="timeline__extra-badge">⏱ 270 horas · Intensivo Online</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.hackaboss_badge"></span>
                 </div>
-                <p class="timeline__extra-desc">Intensive AI & Data programme covering the full spectrum from data analysis to production-ready machine learning models, with hands-on projects applying each concept in real datasets.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.hackaboss_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.hackaboss_b2"></li>
                   <li data-i18n="experience.hackaboss_b3"></li>
-                  <li>Supervised learning: Linear & Logistic Regression, Decision Trees, Random Forest, SVM, K-NN.</li>
-                  <li>Unsupervised learning: K-Means clustering, PCA dimensionality reduction.</li>
-                  <li>Neural networks and Deep Learning with TensorFlow/Keras for classification and NLP tasks.</li>
-                  <li>End-to-end data pipelines: collection, cleaning, EDA, feature engineering, model training and evaluation.</li>
+                  <li data-i18n="experience.hackaboss_b4"></li>
+                  <li data-i18n="experience.hackaboss_b5"></li>
+                  <li data-i18n="experience.hackaboss_b6"></li>
+                  <li data-i18n="experience.hackaboss_b7"></li>
                 </ul>
               </div>
             </div>
@@ -397,22 +397,22 @@
             <div class="timeline__dot timeline__dot--edu"></div>
             <div class="timeline__card">
               <span class="timeline__date">2023 — 2024</span>
-              <h4 class="timeline__role">Higher Degree in Web Application Development (DAW)</h4>
-              <p class="timeline__company">Campus Politécnico Aceimar · Vigo, Spain</p>
+              <h4 class="timeline__role" data-i18n="experience.daw_role"></h4>
+              <p class="timeline__company" data-i18n="experience.daw_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.daw_b1"></li>
               </ul>
               <div class="timeline__extra">
                 <div class="timeline__extra-header">
-                  <span class="timeline__extra-badge">🏢 Internship: Asyson SL</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.daw_badge"></span>
                 </div>
-                <p class="timeline__extra-desc">One-year Higher Degree programme combining server-side and client-side web technologies, culminating in a placement at Asyson SL where real production software was maintained and extended.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.daw_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.daw_b2"></li>
-                  <li>Developed full-stack web applications using PHP, MySQL, HTML5, CSS3 and JavaScript.</li>
-                  <li>Implemented new features and bug fixes in the GMedia PHP codebase following company coding standards.</li>
-                  <li>Designed and queried relational database schemas using MySQL and phpMyAdmin.</li>
-                  <li>Collaborated with the internal team using Git version control and code review workflows.</li>
+                  <li data-i18n="experience.daw_b3"></li>
+                  <li data-i18n="experience.daw_b4"></li>
+                  <li data-i18n="experience.daw_b5"></li>
+                  <li data-i18n="experience.daw_b6"></li>
                 </ul>
               </div>
             </div>
@@ -423,24 +423,24 @@
             <div class="timeline__dot timeline__dot--edu"></div>
             <div class="timeline__card">
               <span class="timeline__date">2020 — 2022</span>
-              <h4 class="timeline__role">Higher Degree in Multiplatform Application Development (DAM)</h4>
-              <p class="timeline__company">Campus Politécnico Aceimar · Vigo, Spain</p>
+              <h4 class="timeline__role" data-i18n="experience.dam_role"></h4>
+              <p class="timeline__company" data-i18n="experience.dam_company"></p>
               <ul class="timeline__bullets">
                 <li data-i18n="experience.dam_b1"></li>
               </ul>
               <div class="timeline__extra">
                 <div class="timeline__extra-header">
-                  <span class="timeline__extra-badge">🏆 Matrícula de Honor</span>
-                  <span class="timeline__extra-badge">🏢 Internship: Galvintec</span>
+                  <span class="timeline__extra-badge" data-i18n="experience.dam_badge1"></span>
+                  <span class="timeline__extra-badge" data-i18n="experience.dam_badge2"></span>
                 </div>
-                <p class="timeline__extra-desc">Two-year programme with a strong focus on cross-platform mobile and web development, completed with the highest academic distinction and leading directly to a professional role at Galvintec.</p>
+                <p class="timeline__extra-desc" data-i18n="experience.dam_desc"></p>
                 <ul class="timeline__bullets">
                   <li data-i18n="experience.dam_b2"></li>
                   <li data-i18n="experience.dam_b3"></li>
-                  <li>Built production-quality projects using Angular, React with Redux state management, and React Native.</li>
-                  <li>Developed hybrid mobile applications using Apache Cordova wrapping React Native components.</li>
-                  <li>Recognised for academic excellence — "Matrícula de Honor" awarded to the top student of the cohort.</li>
-                  <li>Internship at Galvintec subsequently led to a full employment contract (see above).</li>
+                  <li data-i18n="experience.dam_b4"></li>
+                  <li data-i18n="experience.dam_b5"></li>
+                  <li data-i18n="experience.dam_b6"></li>
+                  <li data-i18n="experience.dam_b7"></li>
                 </ul>
               </div>
             </div>
@@ -529,7 +529,7 @@
 
   <!-- Tech popup -->
   <div id="techPopup" class="tech-popup" hidden>
-    <button class="tech-popup__close" id="techPopupClose" aria-label="Cerrar">✕</button>
+    <button class="tech-popup__close" id="techPopupClose" data-i18n-aria="stack.popup_close_aria">✕</button>
     <div class="tech-popup__head">
       <i id="techPopupIcon"></i>
       <strong id="techPopupName"></strong>

@@ -30,6 +30,11 @@ async function applyLang(lang) {
     el.placeholder = get(t, el.dataset.i18nPlaceholder);
   });
 
+  // Aria labels
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => {
+    el.setAttribute('aria-label', get(t, el.dataset.i18nAria));
+  });
+
   // Atributo lang del <html>
   document.documentElement.lang = lang;
 
